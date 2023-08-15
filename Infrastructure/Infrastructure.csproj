@@ -8,9 +8,11 @@
 
   <ItemGroup>
     <None Remove="Persistance\" />
+    <None Remove="Caching\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Persistance\" />
+    <Folder Include="Caching\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
@@ -18,5 +20,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.10" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.122" />
   </ItemGroup>
 </Project>
