@@ -18,12 +18,24 @@
     <None Remove="Abstractions\" />
     <None Remove="Users\" />
     <None Remove="Messages\" />
-    <None Remove="Behaviours\" />
+    <None Remove="Users\Queries\" />
+    <None Remove="Users\Commands\" />
+    <None Remove="Users\Queries\GetUsers\" />
+    <None Remove="Users\Commands\CreateUser\" />
+    <None Remove="Users\Commands\UpdateUser\" />
+    <None Remove="Users\Commands\DeleteUser\" />
+    <None Remove="Behaviors\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
     <Folder Include="Users\" />
     <Folder Include="Messages\" />
-    <Folder Include="Behaviours\" />
+    <Folder Include="Users\Queries\" />
+    <Folder Include="Users\Commands\" />
+    <Folder Include="Users\Queries\GetUsers\" />
+    <Folder Include="Users\Commands\CreateUser\" />
+    <Folder Include="Users\Commands\UpdateUser\" />
+    <Folder Include="Users\Commands\DeleteUser\" />
+    <Folder Include="Behaviors\" />
   </ItemGroup>
 </Project>

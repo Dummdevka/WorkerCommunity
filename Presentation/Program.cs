@@ -14,7 +14,7 @@ builder.Services.addInfrastructure(builder.Configuration, builder.Host);
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
-    options.InstanceName = "WorkCommunity_";
+    options.InstanceName = builder.Configuration.GetSection("RedisPrefix").Value;
 });
 
 var app = builder.Build();

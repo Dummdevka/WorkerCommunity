@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Caching
+﻿namespace Application.Abstrations
 {
 	public interface ICachingService
 	{

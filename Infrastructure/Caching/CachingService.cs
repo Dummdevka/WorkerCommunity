@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json;
+using Application.Abstrations;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using StackExchange.Redis;
@@ -20,9 +21,10 @@ namespace Infrastructure.Caching
 		where T : class
 		{
 			var json = await _cache.GetStringAsync(key, cancellationToken);
-			T data = JsonSerializer.Deserialize<T>(json);
-			if (data is null)
+			if (json is null)
 				return null;
+			T? data = JsonSerializer.Deserialize<T>(json);
+			
 			return data;
 		}
 

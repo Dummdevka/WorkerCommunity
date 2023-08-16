@@ -15,23 +15,23 @@ namespace Infrastructure.Persistance
 		{
 		}
 
-		DbSet<User> Users {
+		public DbSet<User> Users {
 			get; set;
 		}
 
-		DbSet<Message> Messages {
+		public DbSet<Message> Messages {
 			get; set;
 		}
 
-		DbSet<Request> Requests {
+		public DbSet<Request> Requests {
 			get; set;
 		}
 
-		DbSet<Kitchen> Kitchen {
+		public DbSet<Kitchen> Kitchen {
 			get; set;
 		}
 
-		DbSet<ParkingSlot> ParkingSlots {
+		public DbSet<ParkingSlot> ParkingSlots {
 			get; set;
 		}
 

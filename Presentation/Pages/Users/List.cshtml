@@ -1,0 +1,29 @@
+﻿@page
+@model Presentation.Pages.Users.ListModel
+@{
+}
+<h1>Workers list!</h1>
+<table class="table-auto">
+    <tr>
+        <th>Id</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Position</th>
+    </tr>
+    @foreach (var user in @Model.Users)
+    {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.Email</td>
+            <td>@user.Age</td>
+            <td>@user.Position</td>
+        </tr>
+    }
+</table>
+@{
+}
+

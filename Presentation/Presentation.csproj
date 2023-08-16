@@ -11,11 +11,11 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <None Remove="Pages\Includes\" />
-    <None Remove="Pages\Workers\" />
     <None Remove="Pages\ParkingSlots\" />
     <None Remove="Pages\Kitchen\" />
     <None Remove="Pages\Requests\" />
     <None Remove="logs\" />
+    <None Remove="Pages\Users\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.9" />
@@ -24,11 +24,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\Includes\" />
-    <Folder Include="Pages\Workers\" />
     <Folder Include="Pages\ParkingSlots\" />
     <Folder Include="Pages\Kitchen\" />
     <Folder Include="Pages\Requests\" />
     <Folder Include="logs\" />
+    <Folder Include="Pages\Users\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
