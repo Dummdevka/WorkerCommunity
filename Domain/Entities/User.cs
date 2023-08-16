@@ -24,6 +24,7 @@ namespace Domain.Entities
 
 		[Required]
 		[EmailAddress]
+		[MaxLength(340)]
 		public string Email {
 			get; set;
 		}
@@ -43,6 +44,22 @@ namespace Domain.Entities
 		[MinLength(8)]
 		[MaxLength(360)]
 		public string Password {
+			get; set;
+		}
+
+		public List<Message> MessagesSent {
+			get; set;
+		}
+
+		public List<Message> MessagesReceived {
+			get; set;
+		}
+
+		public List<Request> Requests {
+			get; set;
+		}
+
+		public ParkingSlot ParkingSlot {
 			get; set;
 		}
 	}

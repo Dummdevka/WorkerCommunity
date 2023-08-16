@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
@@ -16,12 +17,22 @@ namespace Domain.Entities
 			get; set;
 		}
 
-		[Required]
+		public int FromUserId {
+			get; set;
+		}
+
+		//[Required]
+		//[ForeignKey("FromUserId")]
 		public User From {
 			get; set;
 		}
 
-		[Required]
+		public int ToUserId {
+			get; set;
+		}
+
+		//[Required]
+		//[ForeignKey("ToUserId")]
 		public User To {
 			get; set;
 		}

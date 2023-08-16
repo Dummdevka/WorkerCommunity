@@ -14,7 +14,7 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-
+        _logger.LogWarning("Hi this is the first log message!");
     }
 }
 

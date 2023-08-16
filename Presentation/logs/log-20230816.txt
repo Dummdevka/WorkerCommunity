@@ -1,0 +1,1 @@
+2023-08-16 12:55:36.238 +03:00 [WRN] Hi this is the first log message!
