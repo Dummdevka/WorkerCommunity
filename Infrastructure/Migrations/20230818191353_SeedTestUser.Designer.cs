@@ -4,6 +4,7 @@ using Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(CommunityDbContext))]
-    partial class CommunityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230818191353_SeedTestUser")]
+    partial class SeedTestUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -211,18 +214,16 @@ namespace Infrastructure.Migrations
                             Id = 1,
                             AccessFailedCount = 0,
                             Age = 23,
-                            ConcurrencyStamp = "acb4a184-78ce-47aa-93f2-82c28f4eaf05",
+                            ConcurrencyStamp = "5f2bb564-1ed1-45fc-9e13-174e7ae7d951",
                             Email = "test@test.com",
                             EmailConfirmed = false,
                             FirstName = "Test",
                             LastName = "Test",
                             LockoutEnabled = false,
-                            NormalizedEmail = "test@test.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAIAAYagAAAAEISYrJ8o0wuh7e+VYEa5DzCfWL5HrSEfY5u9hUakGbhq6GLt5vtocnH/BYWQDZ2/IQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELKs0DFHUTtwO4ARJVwlf66CWLeWsVmT6hi6IqnMXqQn1PilAgHCZkZ5ALceBxqsww==",
                             PhoneNumberConfirmed = false,
                             Position = "Tester",
-                            SecurityStamp = "1188ac56-0cae-47ed-bc2b-481b16fe6116",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });

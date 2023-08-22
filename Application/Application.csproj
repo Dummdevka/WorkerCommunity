@@ -25,6 +25,8 @@
     <None Remove="Users\Commands\UpdateUser\" />
     <None Remove="Users\Commands\DeleteUser\" />
     <None Remove="Behaviors\" />
+    <None Remove="Options\" />
+    <None Remove="OptionsSetup\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -37,5 +39,7 @@
     <Folder Include="Users\Commands\UpdateUser\" />
     <Folder Include="Users\Commands\DeleteUser\" />
     <Folder Include="Behaviors\" />
+    <Folder Include="Options\" />
+    <Folder Include="OptionsSetup\" />
   </ItemGroup>
 </Project>

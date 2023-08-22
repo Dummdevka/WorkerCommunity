@@ -1,18 +1,23 @@
 ﻿using System;
+using System.Reflection.Emit;
 using Application.Abstractions;
 using Domain.Entities;
 using Domain.Enums;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistance
 {
-	public class CommunityDbContext : DbContext, IDbContext
+	public class CommunityDbContext : IdentityDbContext<User, IdentityRole<int>, int>, IDbContext
 	{
 		//public CommunityDbContext() {
 
 		//}
-		public CommunityDbContext(DbContextOptions options) : base(options)
+		//private UserManager<User> _userManager;
+		public CommunityDbContext(DbContextOptions<CommunityDbContext> options) : base(options)
 		{
+			//_userManager = userManager;
 		}
 
 		public DbSet<User> Users {
@@ -35,7 +40,8 @@ namespace Infrastructure.Persistance
 			get; set;
 		}
 
-		protected override void OnModelCreating(ModelBuilder model) {
+		protected override async void OnModelCreating(ModelBuilder model) {
+			base.OnModelCreating(model);
 			model.Entity<Request>(entity =>
 			{
 				entity.Property(e => e.RequestType)
@@ -57,8 +63,32 @@ namespace Infrastructure.Persistance
 				.HasOne(e => e.To)
 				.WithMany(e => e.MessagesReceived)
 				.HasForeignKey(e => e.ToUserId)
-				.OnDelete(DeleteBehavior.ClientCascade);	
+				.OnDelete(DeleteBehavior.ClientCascade);
+
+			model.Entity<ParkingSlot>()
+				.HasOne(s => s.OccupiedBy)
+				.WithOne(u => u.ParkingSlot)
+				.HasForeignKey<ParkingSlot>(s => s.UserId)
+				.HasPrincipalKey<User>(u => u.Id);
+
+			//User user = 
+			var hasher = new PasswordHasher<IdentityUser>();
+			model.Entity<User>()
+				.HasData(new User() {
+					Id = 1,
+					FirstName = "Test",
+					LastName = "Test",
+					Email = "test@test.com",
+					Position = "Tester",
+					Age = 23,
+					PasswordHash = hasher.HashPassword(null, "secret"),
+					UserName = "admin",
+					NormalizedUserName = "admin",
+					NormalizedEmail = "test@test.com",
+					SecurityStamp = Guid.NewGuid().ToString("D")
+				});
 		}
+
 	}
 }
 

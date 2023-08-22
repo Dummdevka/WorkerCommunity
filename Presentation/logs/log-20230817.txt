@@ -1,0 +1,313 @@
+2023-08-17 17:28:18.275 +03:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 17:28:18.306 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-17 17:28:18.308 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 17:28:18.309 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-17 17:28:18.321 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-08-17 17:28:18.328 +03:00 [INF] No migrations were applied. The database is already up to date.
+2023-08-17 17:28:47.729 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 17:28:47.757 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-17 17:28:47.760 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 17:28:47.763 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-17 17:28:47.775 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-08-17 17:28:47.782 +03:00 [INF] Reverting migration '20230816090546_AddedEmailLengthLimit'.
+2023-08-17 17:28:48.037 +03:00 [INF] Executed DbCommand (229ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Email');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Email] nvarchar(max) NOT NULL;
+2023-08-17 17:28:48.051 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM [__EFMigrationsHistory]
+WHERE [MigrationId] = N'20230816090546_AddedEmailLengthLimit';
+2023-08-17 18:30:45.042 +03:00 [INF] User profile is available. Using '/Users/dummdevka/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-08-17 18:30:45.362 +03:00 [INF] Now listening on: https://localhost:7042
+2023-08-17 18:30:45.362 +03:00 [INF] Now listening on: http://localhost:5193
+2023-08-17 18:30:45.363 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-17 18:30:45.363 +03:00 [INF] Hosting environment: Development
+2023-08-17 18:30:45.363 +03:00 [INF] Content root path: /Users/dummdevka/Projects/WorkCommunity/Presentation
+2023-08-17 18:30:46.909 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/ - -
+2023-08-17 18:30:46.953 +03:00 [INF] Executing endpoint '/Index'
+2023-08-17 18:30:47.000 +03:00 [INF] Route matched with {page = "/Index"}. Executing page /Index
+2023-08-17 18:30:47.004 +03:00 [INF] Executing handler method Presentation.Pages.IndexModel.OnGet - ModelState is "Valid"
+2023-08-17 18:30:47.005 +03:00 [WRN] Hi this is the first log message!
+2023-08-17 18:30:47.005 +03:00 [INF] Executed handler method OnGet, returned result .
+2023-08-17 18:30:47.006 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-17 18:30:47.007 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-17 18:30:47.086 +03:00 [INF] Executed page /Index in 83.8484ms
+2023-08-17 18:30:47.087 +03:00 [INF] Executed endpoint '/Index'
+2023-08-17 18:30:47.090 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/ - - - 200 - text/html;+charset=utf-8 181.5879ms
+2023-08-17 18:30:47.189 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/css/site.css?v=vgKbhqsokYGDJdts3I8KB-gtypRvTKNbzv--EG0-g8g - -
+2023-08-17 18:30:47.190 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/css/styles.css?v=5RIAMnxL2xjvcpx13BqOJ_d_qGSUxKFHCu4psqM0cOM - -
+2023-08-17 18:30:47.194 +03:00 [INF] Sending file. Request path: '/css/styles.css'. Physical path: '/Users/dummdevka/Projects/WorkCommunity/Presentation/wwwroot/css/styles.css'
+2023-08-17 18:30:47.195 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/css/styles.css?v=5RIAMnxL2xjvcpx13BqOJ_d_qGSUxKFHCu4psqM0cOM - - - 200 15462 text/css 4.5010ms
+2023-08-17 18:30:47.194 +03:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: '/Users/dummdevka/Projects/WorkCommunity/Presentation/wwwroot/css/site.css'
+2023-08-17 18:30:47.195 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/css/site.css?v=vgKbhqsokYGDJdts3I8KB-gtypRvTKNbzv--EG0-g8g - - - 200 349 text/css 5.7677ms
+2023-08-17 18:30:47.196 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Presentation.styles.css?v=ZIOuwrFoPNFTyy-DEwvPhAarZK3uPXIVbP_d9uaHn-s - -
+2023-08-17 18:30:47.198 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/jquery/dist/jquery.min.js - -
+2023-08-17 18:30:47.209 +03:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: '/Users/dummdevka/Projects/WorkCommunity/Presentation/wwwroot/lib/jquery/dist/jquery.min.js'
+2023-08-17 18:30:47.209 +03:00 [INF] Sending file. Request path: '/Presentation.styles.css'. Physical path: '/Users/dummdevka/Projects/WorkCommunity/Presentation/obj/Debug/net7.0/scopedcss/bundle/Presentation.styles.css'
+2023-08-17 18:30:47.233 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/Presentation.styles.css?v=ZIOuwrFoPNFTyy-DEwvPhAarZK3uPXIVbP_d9uaHn-s - - - 200 1081 text/css 36.5860ms
+2023-08-17 18:30:47.233 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/jquery/dist/jquery.min.js - - - 200 89501 text/javascript 12.3479ms
+2023-08-17 18:30:47.233 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-17 18:30:47.233 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/js/site.js?v=ZuuafqFPrVRBKcjc9nVnUgldbE3hS3GG5WeZxe6SIR0 - -
+2023-08-17 18:30:47.255 +03:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: '/Users/dummdevka/Projects/WorkCommunity/Presentation/wwwroot/js/site.js'
+2023-08-17 18:30:47.256 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/js/site.js?v=ZuuafqFPrVRBKcjc9nVnUgldbE3hS3GG5WeZxe6SIR0 - - - 200 227 text/javascript 22.8080ms
+2023-08-17 18:30:47.300 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 66.9528ms
+2023-08-17 18:55:04.331 +03:00 [INF] User profile is available. Using '/Users/dummdevka/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-08-17 18:55:04.619 +03:00 [INF] Now listening on: https://localhost:7042
+2023-08-17 18:55:04.620 +03:00 [INF] Now listening on: http://localhost:5193
+2023-08-17 18:55:04.620 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-17 18:55:04.620 +03:00 [INF] Hosting environment: Development
+2023-08-17 18:55:04.620 +03:00 [INF] Content root path: /Users/dummdevka/Projects/WorkCommunity/Presentation
+2023-08-17 18:55:06.045 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/ - -
+2023-08-17 18:55:06.061 +03:00 [INF] Executing endpoint '/Index'
+2023-08-17 18:55:06.087 +03:00 [INF] Route matched with {page = "/Index"}. Executing page /Index
+2023-08-17 18:55:06.091 +03:00 [INF] Executing handler method Presentation.Pages.IndexModel.OnGet - ModelState is "Valid"
+2023-08-17 18:55:06.092 +03:00 [WRN] Hi this is the first log message!
+2023-08-17 18:55:06.092 +03:00 [INF] Executed handler method OnGet, returned result .
+2023-08-17 18:55:06.094 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-17 18:55:06.094 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-17 18:55:06.156 +03:00 [INF] Executed page /Index in 66.7111ms
+2023-08-17 18:55:06.157 +03:00 [INF] Executed endpoint '/Index'
+2023-08-17 18:55:06.160 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/ - - - 200 - text/html;+charset=utf-8 114.9636ms
+2023-08-17 18:55:06.258 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-17 18:55:06.260 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 1.8632ms
+2023-08-17 18:55:29.259 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 18:55:29.294 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-17 18:55:29.296 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 18:55:29.297 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-17 18:55:29.312 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-08-17 18:55:29.319 +03:00 [INF] Applying migration '20230817155519_Initial'.
+2023-08-17 18:55:29.442 +03:00 [INF] Executed DbCommand (91ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2023-08-17 18:55:29.452 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] int NOT NULL IDENTITY,
+    [FirstName] nvarchar(50) NOT NULL,
+    [LastName] nvarchar(50) NOT NULL,
+    [Email] nvarchar(256) NOT NULL,
+    [Age] int NOT NULL,
+    [Position] nvarchar(300) NOT NULL,
+    [Password] nvarchar(360) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2023-08-17 18:55:29.494 +03:00 [ERR] Failed executing DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Kitchen] (
+    [waterNeeded] bit NOT NULL,
+    [teaNeeded] bit NOT NULL,
+    [coffeeNeeded] bit NOT NULL
+);
+2023-08-17 18:57:17.264 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 18:57:17.290 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-17 18:57:17.294 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 18:57:17.296 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-17 18:57:17.304 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-08-17 18:57:17.311 +03:00 [INF] Applying migration '20230817155519_Initial'.
+2023-08-17 18:57:17.364 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2023-08-17 18:57:17.369 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] int NOT NULL IDENTITY,
+    [FirstName] nvarchar(50) NOT NULL,
+    [LastName] nvarchar(50) NOT NULL,
+    [Email] nvarchar(256) NOT NULL,
+    [Age] int NOT NULL,
+    [Position] nvarchar(300) NOT NULL,
+    [Password] nvarchar(360) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2023-08-17 18:57:17.372 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Kitchen] (
+    [waterNeeded] bit NOT NULL,
+    [teaNeeded] bit NOT NULL,
+    [coffeeNeeded] bit NOT NULL
+);
+2023-08-17 18:57:17.377 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] int NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2023-08-17 18:57:17.380 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-08-17 18:57:17.386 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-08-17 18:57:17.389 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] int NOT NULL,
+    [RoleId] int NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-08-17 18:57:17.396 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] int NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-08-17 18:57:17.400 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Messages] (
+    [Id] int NOT NULL IDENTITY,
+    [Text] nvarchar(2000) NOT NULL,
+    [FromUserId] int NOT NULL,
+    [ToUserId] int NOT NULL,
+    CONSTRAINT [PK_Messages] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Messages_AspNetUsers_FromUserId] FOREIGN KEY ([FromUserId]) REFERENCES [AspNetUsers] ([Id]),
+    CONSTRAINT [FK_Messages_AspNetUsers_ToUserId] FOREIGN KEY ([ToUserId]) REFERENCES [AspNetUsers] ([Id])
+);
+2023-08-17 18:57:17.403 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ParkingSlots] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(10) NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_ParkingSlots] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ParkingSlots_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-08-17 18:57:17.406 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Requests] (
+    [Id] int NOT NULL IDENTITY,
+    [RequestType] int NOT NULL,
+    [Title] nvarchar(200) NOT NULL,
+    [Description] nvarchar(500) NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Requests] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Requests_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-08-17 18:57:17.410 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2023-08-17 18:57:17.416 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2023-08-17 18:57:17.417 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2023-08-17 18:57:17.419 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2023-08-17 18:57:17.420 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2023-08-17 18:57:17.422 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2023-08-17 18:57:17.423 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2023-08-17 18:57:17.425 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Messages_FromUserId] ON [Messages] ([FromUserId]);
+2023-08-17 18:57:17.426 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Messages_ToUserId] ON [Messages] ([ToUserId]);
+2023-08-17 18:57:17.427 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_ParkingSlots_UserId] ON [ParkingSlots] ([UserId]);
+2023-08-17 18:57:17.429 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Requests_UserId] ON [Requests] ([UserId]);
+2023-08-17 18:57:17.433 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230817155519_Initial', N'7.0.10');
+2023-08-17 18:59:12.819 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 18:59:12.845 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-17 18:59:12.848 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-17 18:59:12.851 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-17 18:59:12.858 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-08-17 18:59:12.864 +03:00 [INF] Applying migration '20230817155857_DropPasswordOnUser'.
+2023-08-17 18:59:12.953 +03:00 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[AspNetUsers]') AND [c].[name] = N'Password');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [AspNetUsers] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [AspNetUsers] DROP COLUMN [Password];
+2023-08-17 18:59:12.955 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230817155857_DropPasswordOnUser', N'7.0.10');

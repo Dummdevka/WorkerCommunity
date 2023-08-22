@@ -1,14 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Entities
 {
-	public class User
+	public class User : IdentityUser<int>
 	{
-		[Key]
-		public int Id {
-			get; set;
-		}
+		//[Key]
+		//public int Id {
+		//	get; set;
+		//}
 	
 		[Required]
 		[MaxLength(50)]
@@ -37,13 +38,6 @@ namespace Domain.Entities
 		[Required]
 		[MaxLength(300)]
 		public string Position {
-			get; set;
-		}
-
-		[Required]
-		[MinLength(8)]
-		[MaxLength(360)]
-		public string Password {
 			get; set;
 		}
 

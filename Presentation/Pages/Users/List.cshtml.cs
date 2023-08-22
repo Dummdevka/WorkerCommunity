@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Application.Users.Queries.GetUsers;
 using Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -24,6 +25,7 @@ namespace Presentation.Pages.Users
             _mediator = mediator;
         }
 
+        //[Authorize]
         public async Task OnGet()
         {
             Users = await _mediator.Send(new GetUsersQuery());

@@ -1,39 +1,51 @@
 ﻿<div class="flex flex-col left-0 hover:w-64 md:w-64 bg-slate-800 h-full text-white transition-all duration-300 border-none z-10 sidebar">
     <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
-        <ul class="flex flex-col py-4 space-y-1">
-            <li>
-                <a href="/Users/List" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
-                    <span class="ml-2 text-sm tracking-wide truncate">Workers</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
-                    <span class="ml-2 text-sm tracking-wide truncate">Messages</span>
-                </a>
-            </li>
-            <li>
-                <a href="/ParkingSlots/List" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
-                    <span class="ml-2 text-sm tracking-wide truncate">Parking slots</span>
-                </a>
-            </li>
-            <li>
-                <a href="/Requests/List" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
-                    <span class="ml-2 text-sm tracking-wide truncate">Requests</span>
-                </a>
-            </li>
-            <li>
-                <a href="/Kitchen/List" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
-                    <span class="ml-2 text-sm tracking-wide truncate">Kitchen</span>
-                </a>
-            </li>
-           
-        </ul>
-        <ul class="flex flex-col mt-7">
-            <li >
-                <a href="/Logout" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
-                    <span class="ml-2 text-sm tracking-wide truncate">Log out</span>
-                </a>
-            </li>
-        </ul>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <ul class="flex flex-col py-4 space-y-1">
+                <li>
+                    <a href="/Users/List" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
+                        <span class="ml-2 text-sm tracking-wide truncate">Workers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
+                        <span class="ml-2 text-sm tracking-wide truncate">Messages</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/ParkingSlots/List" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
+                        <span class="ml-2 text-sm tracking-wide truncate">Parking slots</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Requests/List" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
+                        <span class="ml-2 text-sm tracking-wide truncate">Requests</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Kitchen/List" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
+                        <span class="ml-2 text-sm tracking-wide truncate">Kitchen</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="flex flex-col mt-7">
+                <li>
+                    <form class="form-inline" asp-page="/Authentication/Logout" method="post">
+                        <button type="submit" class="">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        }
+        else
+        {
+            <ul class="flex flex-col mt-7">
+                <li>
+                    <a href="/Authentication/Login" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
+                        <span class="ml-2 text-sm tracking-wide truncate">Login</span>
+                    </a>
+                </li>
+            </ul>
+        }
     </div>
 </div>

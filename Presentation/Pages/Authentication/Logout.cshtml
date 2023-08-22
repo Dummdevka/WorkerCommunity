@@ -1,0 +1,14 @@
+﻿@page
+@model Presentation.Pages.Authentication.LogoutModel
+@{
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <form class="form-inline" method="post">
+            <button type="submit" class="shadow-drop-sm rounded-sm bg-pirple-200 text-white">Logout</button>
+        </form>
+    } else { 
+	    <p class="font-sans text-xl p-2">You sucessfully logged out!</p>
+	}
+
+}
+

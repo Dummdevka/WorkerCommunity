@@ -7,6 +7,9 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Application.Abstrations;
 using Infrastructure.Caching;
+using Microsoft.AspNetCore.Identity;
+using Domain.Entities;
+using Application.OptionsSetup;
 
 namespace Infrastructure;
 
@@ -23,10 +26,18 @@ public static class DependencyInjection
 
 		host.UseSerilog(logger);
 
-		return services
-				.AddDbContext<CommunityDbContext>(options => {
-					options.UseSqlServer(config.GetConnectionString("Default"));
-				})
+		services
+			   .AddDbContext<CommunityDbContext>(options => {
+				   options.UseSqlServer(config.GetConnectionString("Default"));
+			   })
+			   //.AddDefaultIdentity<>
+			   .AddIdentity<User, IdentityRole<int>>()
+			   .AddEntityFrameworkStores<CommunityDbContext>();
+
+		services.ConfigureOptions<IdentityOptionsSetup>();
+		services.ConfigureOptions<CookieOptionsSetup>();
+
+		return	services
 				.AddTransient<IDbContext, CommunityDbContext>()
 				.AddSingleton<ICachingService, CachingService>();
 	}
