@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Users.Commands.DeleteUser;
 using Application.Users.Queries.GetUsers;
 using Domain.Entities;
 using MediatR;
@@ -25,10 +26,15 @@ namespace Presentation.Pages.Users
             _mediator = mediator;
         }
 
-        //[Authorize]
+        [Authorize]
         public async Task OnGet()
         {
             Users = await _mediator.Send(new GetUsersQuery());
         }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id) {
+            await _mediator.Send(new DeleteUserCommand(id));
+            return Redirect("/Users/List");
+	    }
     }
 }

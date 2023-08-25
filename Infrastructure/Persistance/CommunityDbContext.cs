@@ -72,21 +72,21 @@ namespace Infrastructure.Persistance
 				.HasPrincipalKey<User>(u => u.Id);
 
 			//User user = 
-			var hasher = new PasswordHasher<IdentityUser>();
-			model.Entity<User>()
-				.HasData(new User() {
-					Id = 1,
-					FirstName = "Test",
-					LastName = "Test",
-					Email = "test@test.com",
-					Position = "Tester",
-					Age = 23,
-					PasswordHash = hasher.HashPassword(null, "secret"),
-					UserName = "admin",
-					NormalizedUserName = "admin",
-					NormalizedEmail = "test@test.com",
-					SecurityStamp = Guid.NewGuid().ToString("D")
-				});
+			//var hasher = new PasswordHasher<IdentityUser>();
+			//model.Entity<User>()
+			//	.HasData(new User() {
+			//		Id = 1,
+			//		FirstName = "Test",
+			//		LastName = "Test",
+			//		Email = "test@test.com",
+			//		Position = "Tester",
+			//		Age = 23,
+			//		PasswordHash = hasher.HashPassword(null, "secret"),
+			//		UserName = "admin",
+			//		NormalizedUserName = "admin",
+			//		NormalizedEmail = "test@test.com",
+			//		SecurityStamp = Guid.NewGuid().ToString("D")
+			//	});
 		}
 
 	}

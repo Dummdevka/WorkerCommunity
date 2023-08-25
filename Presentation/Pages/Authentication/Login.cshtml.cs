@@ -46,7 +46,6 @@ namespace Presentation.Pages.Authentication
 		public async Task<IActionResult?> OnPost() {
 
 			User? user = await _userManager.FindByEmailAsync(Email);
-			//_userManager.FindByEmailAsync()
 			if (user is not null) {
 				var result = await _signInManager.PasswordSignInAsync(user, Password, false, false);
 
@@ -58,12 +57,10 @@ namespace Presentation.Pages.Authentication
 					}
 				} else {
 					ModelState.AddModelError("", "Invalid password");
-					//ViewData["ErrorMessage"] = "Invalid password";
 				}
 			}
 			ModelState.AddModelError("", "Invalid email");
 
-			//ViewData["ErrorMessage"] = "Invalid email";
 			return Page();
 		}
 	}

@@ -3,18 +3,24 @@ using System.Text.Json;
 using Application.Abstrations;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
 
 namespace Infrastructure.Caching
 {
 	public class CachingService : ICachingService
 	{
-		IDistributedCache _cache;
+		private readonly IDistributedCache _cache;
 		ConnectionMultiplexer _mutex;
-		public CachingService(IDistributedCache cache, IConfiguration config)
+		private readonly IConfiguration _config;
+		private readonly ILogger<CachingService> _logger;
+
+		public CachingService(IDistributedCache cache, IConfiguration config, ILogger<CachingService> logger)
 		{
 			_cache = cache;
 			_mutex = ConnectionMultiplexer.Connect(config.GetConnectionString("Redis"));
+			_config = config;
+			_logger = logger;
 		}
 
 		public async Task<T?> GetDataAsync<T>(string key, CancellationToken cancellationToken = default)
@@ -45,13 +51,19 @@ namespace Infrastructure.Caching
 
 		}
 
-		public void RemoveRecordsByKeyPattern(string pattern)
+		public void RemoveRecordsByKeyPattern(string entity, CancellationToken cancellationToken = default)
 		{
+			string pattern = _config.GetSection("RedisPrefix").Value + entity;
 			var server = _mutex.GetServer("localhost", 5002);
-			foreach (var key in server.Keys(pattern: pattern + '*'))
-			{
-				_cache.Remove(key);
+			var keys = server.Keys(pattern: pattern + '*');
+			foreach (var key in keys) {
+				_logger.LogInformation("CACHE KEY: " + key);
+				_mutex.GetDatabase().KeyDelete(key);	
 			}
+		}
+
+		public async Task RemoveRecord(string key) {
+			await _cache.RemoveAsync(key);
 		}
 	}
 }

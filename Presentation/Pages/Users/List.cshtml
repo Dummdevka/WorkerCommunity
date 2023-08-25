@@ -2,28 +2,51 @@
 @model Presentation.Pages.Users.ListModel
 @{
 }
-<h1>Workers list!</h1>
-<table class="table-auto">
-    <tr>
-        <th>Id</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Email</th>
-        <th>Age</th>
-        <th>Position</th>
-    </tr>
-    @foreach (var user in @Model.Users)
-    {
-        <tr>
-            <td>@user.Id</td>
-            <td>@user.FirstName</td>
-            <td>@user.LastName</td>
-            <td>@user.Email</td>
-            <td>@user.Age</td>
-            <td>@user.Position</td>
-        </tr>
-    }
-</table>
+@if(User.IsInRole("Admin")) { 
+    <a href="/Users/Create">
+        <button role="button" class="mt-4 rounded-sm shadow-drop p-2 bg-gray-500 text-white p-2 hover:bg-gray-700">Add user</button>    
+    </a>
+}
+<div class="w-full mr-2 mt-2">
+    <table class="text-left rounded-lg w-full shadow-drop-sm text-white p-2">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">Id</th>
+                <th scope="col" class="px-6 py-3">First name</th>
+                <th scope="col" class="px-6 py-3">Last name</th>
+                <th scope="col" class="px-6 py-3">Email</th>
+                <th scope="col" class="px-6 py-3">Age</th>
+                <th scope="col" class="px-6 py-3">Position</th>
+                @if (User.IsInRole("Admin")) { 
+                    <th scope="col" class="px-6 py-3"></th>
+		         }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in @Model.Users)
+            {
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-6 py-4">@user.Id</td>
+                    <td class="px-6 py-4"">@user.FirstName</td>
+                    <td class="px-6 py-4"">@user.LastName</td>
+                    <td class="px-6 py-4">@user.Email</td>
+                    <td class="px-6 py-4">@user.Age</td>
+                    <td class="px-6 py-4">@user.Position</td>
+                    @if(User.IsInRole("Admin")) { 
+                        <td class="px-6 py-4">
+                            <form method="post" asp-page-handler="delete" asp-route-id="@user.Id">
+                                @*<input name="id" value="@user.Id" hidden />*@
+                                <button type="submit" class="rounded-sm shadow-drop-sm bg-red-500 text-white p-1">Delete</button>
+                            </form>
+                        </td>
+			        }
+                    
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
 @{
 }
 

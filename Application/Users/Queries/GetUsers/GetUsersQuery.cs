@@ -9,7 +9,7 @@ namespace Application.Users.Queries.GetUsers
 	{
 		public bool skipCaching => false;
 
-		public string cacheKey => "Users";
+		public string cacheKey => User.cacheKey;
 
 		public TimeSpan? absoluteExpiration => TimeSpan.FromHours(1);
 

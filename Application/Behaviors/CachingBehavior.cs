@@ -26,7 +26,7 @@ namespace Application.Behaviors
 		{
 			if (request.skipCaching)
 				return await next();
-			string key = _config.GetSection("RedisPrefix").Value + request.cacheKey + "_" + DateTime.Now.ToString("yyyyMMdd_hhmm");
+			string key = request.cacheKey + "_" + DateTime.Now.ToString("yyyyMMdd_hh");
 
 			var cachedData = await _cache.GetDataAsync<TResponse>(key);
 			if (cachedData is null) {

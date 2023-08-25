@@ -18,10 +18,6 @@ namespace Application.Users.Commands.CreateUser
 				.InclusiveBetween(14, 99)
 				.NotEmpty();
 
-			RuleFor(u => u.email)
-				.EmailAddress()
-				.NotEmpty();
-
 			RuleFor(u => u.position)
 				.MaximumLength(300)
 				.NotEmpty();

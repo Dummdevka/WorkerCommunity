@@ -3,11 +3,18 @@
         @if (SignInManager.IsSignedIn(User))
         {
             <ul class="flex flex-col py-4 space-y-1">
-                <li>
-                    <a href="/Users/List" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
-                        <span class="ml-2 text-sm tracking-wide truncate">Workers</span>
-                    </a>
-                </li>
+                @if(User.IsInRole("Admin")) {
+		             <li>
+                       <a href="/Users/List" class="dropdown relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
+                            <span class="ml-2 text-sm tracking-wide truncate">Workers</span>
+                        </a>
+		         
+                    </li>
+
+                    
+                    
+		        }
+               
                 <li>
                     <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-cyan-500 text-white hover:text-gray-800 border-l-4 border-transparent">
                         <span class="ml-2 text-sm tracking-wide truncate">Messages</span>

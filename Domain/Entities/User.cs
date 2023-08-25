@@ -1,16 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Entities
 {
 	public class User : IdentityUser<int>
 	{
-		//[Key]
-		//public int Id {
-		//	get; set;
-		//}
-	
 		[Required]
 		[MaxLength(50)]
 		public string FirstName {
@@ -20,13 +16,6 @@ namespace Domain.Entities
 		[Required]
 		[MaxLength(50)]
 		public string LastName {
-			get; set;
-		}
-
-		[Required]
-		[EmailAddress]
-		[MaxLength(340)]
-		public string Email {
 			get; set;
 		}
 
@@ -56,6 +45,9 @@ namespace Domain.Entities
 		public ParkingSlot ParkingSlot {
 			get; set;
 		}
+
+		[NotMapped]
+		public static string cacheKey => "Users";
 	}
 }
 

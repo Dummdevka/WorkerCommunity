@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Application;
 using Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapRazorPages();
+
+await app.AddRoles();
+await app.AddAdmin();
+app.UseAuthorization();
 //app.UseEndpoints(endpoints =>
 //{
 //    endpoints.MapControllerRoute(

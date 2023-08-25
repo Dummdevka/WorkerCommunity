@@ -8,7 +8,7 @@ namespace Domain.Abstractions
 		}
 
 		string cacheKey {
-			get; 
+			get;
 		}
 
 		TimeSpan? absoluteExpiration {
