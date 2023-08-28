@@ -10,10 +10,6 @@ namespace Application.Abstractions
 			get; set;
 		}
 
-		DbSet<Message> Messages {
-			get; set;
-		}
-
 		DbSet<ParkingSlot> ParkingSlots {
 			get; set;
 		}

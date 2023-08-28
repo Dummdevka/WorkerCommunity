@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Entities
@@ -30,13 +31,13 @@ namespace Domain.Entities
 			get; set;
 		}
 
-		public List<Message> MessagesSent {
-			get; set;
-		}
+		//public List<Message> MessagesSent {
+		//	get; set;
+		//}
 
-		public List<Message> MessagesReceived {
-			get; set;
-		}
+		//public List<Message> MessagesReceived {
+		//	get; set;
+		//}
 
 		public List<Request> Requests {
 			get; set;
@@ -48,6 +49,16 @@ namespace Domain.Entities
 
 		[NotMapped]
 		public static string cacheKey => "Users";
+
+		//public async Task<ClaimsIdentity> GenerateUserIdentityAsync(
+		//	UserManager<User> manager) {
+		//	// Note the authenticationType must match the one defined in
+		//	// CookieAuthenticationOptions.AuthenticationType 
+		//	var userIdentity = await manager.CreateIdentityAsync(
+		//		this, DefaultAuthenticationTypes.ApplicationCookie);
+		//	// Add custom user claims here 
+		//	return userIdentity;
+		//}
 	}
 }
 

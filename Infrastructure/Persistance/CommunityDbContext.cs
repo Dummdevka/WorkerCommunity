@@ -24,10 +24,6 @@ namespace Infrastructure.Persistance
 			get; set;
 		}
 
-		public DbSet<Message> Messages {
-			get; set;
-		}
-
 		public DbSet<Request> Requests {
 			get; set;
 		}
@@ -52,18 +48,6 @@ namespace Infrastructure.Persistance
 			{
 				entity.HasNoKey();
 			});
-
-			model.Entity<Message>()
-				.HasOne(e => e.From)
-				.WithMany(e => e.MessagesSent)
-				.HasForeignKey(e => e.FromUserId)
-				.OnDelete(DeleteBehavior.ClientCascade);
-
-			model.Entity<Message>()
-				.HasOne(e => e.To)
-				.WithMany(e => e.MessagesReceived)
-				.HasForeignKey(e => e.ToUserId)
-				.OnDelete(DeleteBehavior.ClientCascade);
 
 			model.Entity<ParkingSlot>()
 				.HasOne(s => s.OccupiedBy)

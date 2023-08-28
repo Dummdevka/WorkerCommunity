@@ -17,6 +17,7 @@
     <None Remove="logs\" />
     <None Remove="Pages\Users\" />
     <None Remove="Pages\Authentication\" />
+    <None Remove="Pages\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.9" />
@@ -31,6 +32,7 @@
     <Folder Include="logs\" />
     <Folder Include="Pages\Users\" />
     <Folder Include="Pages\Authentication\" />
+    <Folder Include="Pages\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">

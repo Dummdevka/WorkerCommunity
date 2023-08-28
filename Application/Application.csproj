@@ -27,6 +27,14 @@
     <None Remove="Behaviors\" />
     <None Remove="Options\" />
     <None Remove="OptionsSetup\" />
+    <None Remove="Users\Commands\UpdateUserPassword\" />
+    <None Remove="Requests\" />
+    <None Remove="ParkingSlots\" />
+    <None Remove="Requests\Queries\" />
+    <None Remove="Requests\Commands\" />
+    <None Remove="Requests\Commands\CreateRequest\" />
+    <None Remove="Requests\Queries\GetRequests\" />
+    <None Remove="Requests\Queries\GetRequestsByUser\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -41,5 +49,13 @@
     <Folder Include="Behaviors\" />
     <Folder Include="Options\" />
     <Folder Include="OptionsSetup\" />
+    <Folder Include="Users\Commands\UpdateUserPassword\" />
+    <Folder Include="Requests\" />
+    <Folder Include="ParkingSlots\" />
+    <Folder Include="Requests\Queries\" />
+    <Folder Include="Requests\Commands\" />
+    <Folder Include="Requests\Commands\CreateRequest\" />
+    <Folder Include="Requests\Queries\GetRequests\" />
+    <Folder Include="Requests\Queries\GetRequestsByUser\" />
   </ItemGroup>
 </Project>

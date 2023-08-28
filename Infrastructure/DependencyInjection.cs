@@ -27,22 +27,26 @@ public static class DependencyInjection
 			.CreateLogger();
 
 		host.UseSerilog(logger);
-		
+
 		//Authentication
 		services
-			   .AddDbContext<CommunityDbContext>(options => {
+			   .AddDbContext<CommunityDbContext>(options =>
+			   {
 				   options.UseSqlServer(config.GetConnectionString("Default"));
+				   options.EnableSensitiveDataLogging();
+				   //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 			   })
-			   //.AddDefaultIdentity<>
-			   .AddIdentity<User, IdentityRole<int>>()
+
+				.AddDefaultIdentity<User>()
 			   .AddRoles<IdentityRole<int>>()
 			   .AddEntityFrameworkStores<CommunityDbContext>();
+		
 
 		services.ConfigureOptions<IdentityOptionsSetup>();
 		services.ConfigureOptions<CookieOptionsSetup>();
 
 		return	services
-				.AddTransient<IDbContext, CommunityDbContext>()
+				.AddScoped<IDbContext, CommunityDbContext>()
 				.AddSingleton<ICachingService, CachingService>();
 	}
 

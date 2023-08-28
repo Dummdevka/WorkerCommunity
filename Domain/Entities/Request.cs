@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Emit;
 using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
@@ -38,8 +39,8 @@ namespace Domain.Entities
 			get; set;
 		}
 
-		
-
+		[NotMapped]
+		public static string cacheKey = "Requests";
 	}
 
 	
