@@ -405,4 +405,4 @@ ASALocalRun/
 .localhistory/
 
 # Logs
-logs/*
+Presentation/logs/*
