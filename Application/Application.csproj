@@ -37,6 +37,7 @@
     <None Remove="Requests\Queries\GetRequestById\" />
     <None Remove="Requests\Commands\DeleteRequest\" />
     <None Remove="Filters\" />
+    <None Remove="Requests\Commands\UpdateRequest\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -61,5 +62,6 @@
     <Folder Include="Requests\Queries\GetRequestById\" />
     <Folder Include="Requests\Commands\DeleteRequest\" />
     <Folder Include="Filters\" />
+    <Folder Include="Requests\Commands\UpdateRequest\" />
   </ItemGroup>
 </Project>

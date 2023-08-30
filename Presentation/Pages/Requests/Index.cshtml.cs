@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Requests.Commands.UpdateRequest;
 using Application.Requests.Queries.GetRequestById;
 using Domain.Entities;
 using Domain.Enums;
@@ -46,8 +47,11 @@ namespace Presentation.Pages.Requests
         }
 
 		[Authorize(Roles = "Admin")]
-		public async Task OnPostCompleteAsync() {
-			
+		public async Task<IActionResult> OnPostCompleteAsync(int id, bool completed) {	
+			Dictionary<string, object> updateData = new();
+			updateData.Add("Completed", !completed);
+			await _mediator.Send(new UpdateRequestCommand(id, updateData));
+			return Redirect(Request.Path + "?Id=" + id);
 		}
 
 		[Authorize(Roles = "Admin")]
@@ -56,7 +60,7 @@ namespace Presentation.Pages.Requests
 		}
 
 		[Authorize(Roles = "Worker")]
-		public async Task OnPostUpdate() {
+		public async Task<IActionResult> OnPostUpdateAsync() {
 			throw new NotImplementedException();
 		}
     }
