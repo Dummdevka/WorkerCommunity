@@ -1,0 +1,38 @@
+﻿@page
+@model Presentation.Pages.Requests.IndexModel
+@{
+    <div class="flex w-full flex-col items-center">
+        <form method="post" asp-page-handler="edit" class="flex flex-col w-1/2 p-2 rounded-sm shadow-drop sm bg-gray-300 my-4">
+            @if(User.IsInRole("Admin")) { 
+                <div class="flex flex-col w-100 p-2">
+		            <span class="text-sm underline">Created by @Model.request.CreatedBy.FirstName @Model.request.CreatedBy.LastName</span>
+		        </div>
+		    }
+            <div class="flex flex-col w-100 p-2">
+                <label for="Title" class="text-sm">Title:</label>
+                <input disabled="@Model.Disabled" class="h-10 border border-gray-400 rounded-sm mt-1 p-2" name="request.Title" placeholder="Title" value="@Model.request.Title" id="Title" />
+            </div>
+            <div class="flex flex-col w-100 p-2">
+                <label for="Description" class="text-sm">Description:</label>
+                <textarea disabled="@Model.Disabled" class="border border-gray-400 rounded-sm mt-1 p-2" name="request.Description" id="Description">@Model.request.Description</textarea>
+            </div>
+            <div class="flex flex-col w-100 p-2">
+                <label for="Title" class="text-sm">Type:</label>
+                <select class="border border-gray-400 rounded-sm mt-1 p-2" disabled="@Model.Disabled">
+		            @foreach(var type in Model.RequestTypes) { 
+			            <option value="@type">@type</option>
+			        }
+		        </select>
+            </div>
+            @if(!Model.Disabled) { 
+                <button class="rounded-sm bg-green-400 hover:bg-green-900 text-green-900 hover:text-white drop-shadow-sm h-10 transition">Save</button>
+		     }
+	        @if(User.IsInRole("Admin")) { 
+                    <form method="post" asp-page-handler="complete">
+                        <button class="rounded-sm bg-green-400 hover:bg-green-900 text-green-900 hover:text-white drop-shadow-sm h-10 transition">Mark completed</button>
+		            </form>
+		     }
+        </form>
+    </div>
+}
+

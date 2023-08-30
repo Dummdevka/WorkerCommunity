@@ -1,0 +1,8 @@
+﻿@{
+    @if (TempData.ContainsKey("SubmitMessage")) { 
+        <div class="p-4 bg-green-400 rounded-md drop-shadow-sm mb-4 text-gray-800 text-center w-1/2 text-xxl">
+            @TempData["SubmitMessage"]
+        </div>
+    }
+}
+

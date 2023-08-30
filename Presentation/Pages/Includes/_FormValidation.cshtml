@@ -1,0 +1,9 @@
+﻿@{
+    @if (!Html.ViewData.ModelState.IsValid)
+    {
+        <div class="p-4 bg-red-400 rounded-md drop-shadow-sm mb-4 text-white text-center w-1/2 text-xxl">
+            @Html.ValidationSummary(false)
+        </div>
+    }
+}
+

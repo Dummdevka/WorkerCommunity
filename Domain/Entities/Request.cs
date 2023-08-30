@@ -39,6 +39,10 @@ namespace Domain.Entities
 			get; set;
 		}
 
+		public bool Completed {
+			get; set;
+		} = false;
+
 		[NotMapped]
 		public static string cacheKey = "Requests";
 	}

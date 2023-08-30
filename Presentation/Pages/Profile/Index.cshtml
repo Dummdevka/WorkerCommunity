@@ -1,0 +1,31 @@
+﻿@page
+@model Presentation.Pages.Profile.IndexModel
+@{
+    <div class="flex flex-col w-full items-center">
+        <a href="/Profile/ChangePassword">
+            <button class="mb-2 mt-4 rounded-sm shadow-drop p-2 bg-gray-500 text-white p-2 hover:bg-gray-700 transition">Change password</button>
+	    </a>
+        <partial name="Includes/_FormValidation"></partial>
+        <partial name="Includes/_SuccessMessage"></partial>
+        <form method="post" asp-page-handler="update" class="flex flex-col bg-gray-200 rounded-md shadow-drop-sm p-4 w-1/2 mt-4">
+            <div class="flex flex-col w-100 p-2">
+                <label class="text-sm">First name:</label>
+                <input class="h-10 border border-gray-400 rounded-sm mt-1 p-2" name="FirstName" value="@Model.FirstName" placeholder="First name" />
+            </div>
+            <div class="flex flex-col w-100 p-2">
+                <label class="text-sm">Last name:</label>
+                <input class="h-10 border border-gray-400 rounded-sm mt-1 p-2" name="LastName" value="@Model.LastName" placeholder="Last name" />
+            </div>
+            <div class="flex flex-col w-100 p-2">
+                <label class="text-sm">Email:</label>
+                <input class="h-10 border border-gray-400 rounded-sm mt-1 p-2" name="Email" value="@Model.Email" placeholder="Email" />
+            </div>
+            <div class="flex flex-col w-100 p-2">
+                <label class="text-sm">Age:</label>
+                <input type="number" min="18" max="100" class="h-10 border border-gray-400 rounded-sm mt-1 p-2" name="Age" value="@Model.Age" placeholder="Age" />
+            </div>
+            <button type="submit" class="rounded-sm bg-green-400 hover:bg-green-900 text-green-900 hover:text-white drop-shadow-sm h-10 transition">Save changes</button>
+        </form>
+    </div>
+}
+

@@ -21,7 +21,6 @@ public static class DependencyInjection
 		//Logging 
 		var logger = new LoggerConfiguration()
 			.ReadFrom.Configuration(config)
-			//.MinimumLevel.Warning()
 			.Enrich.FromLogContext()
 			.WriteTo.File(path: Environment.CurrentDirectory + "/logs/log-.txt", rollingInterval: RollingInterval.Day)
 			.CreateLogger();
@@ -34,7 +33,6 @@ public static class DependencyInjection
 			   {
 				   options.UseSqlServer(config.GetConnectionString("Default"));
 				   options.EnableSensitiveDataLogging();
-				   //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 			   })
 
 				.AddDefaultIdentity<User>()

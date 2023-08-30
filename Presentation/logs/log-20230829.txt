@@ -1,0 +1,492 @@
+2023-08-29 09:57:12.438 +03:00 [INF] User profile is available. Using '/Users/dummdevka/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-08-29 09:57:12.813 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 09:57:13.260 +03:00 [INF] Executed DbCommand (33ms) [Parameters=[@__normalizedName_0='ADMIN' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 09:57:13.343 +03:00 [INF] Executed DbCommand (51ms) [Parameters=[@__normalizedName_0='WORKER' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 09:57:13.372 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='TRAKE1524@GMAIL.COM' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-29 09:57:13.677 +03:00 [INF] Now listening on: https://localhost:7042
+2023-08-29 09:57:13.677 +03:00 [INF] Now listening on: http://localhost:5193
+2023-08-29 09:57:13.683 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-29 09:57:13.683 +03:00 [INF] Hosting environment: Development
+2023-08-29 09:57:13.683 +03:00 [INF] Content root path: /Users/dummdevka/Projects/WorkCommunity/Presentation
+2023-08-29 09:57:15.107 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/ - -
+2023-08-29 09:57:15.158 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[@__p_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2023-08-29 09:57:15.187 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__user_Id_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-08-29 09:57:15.211 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-08-29 09:57:15.262 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedName_0='ADMIN' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 09:57:15.273 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__role_Id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2023-08-29 09:57:15.289 +03:00 [INF] Executing endpoint '/Index'
+2023-08-29 09:57:15.296 +03:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2023-08-29 09:57:15.301 +03:00 [INF] Executing handler method Presentation.Pages.IndexModel.OnGet - ModelState is "Valid"
+2023-08-29 09:57:15.301 +03:00 [WRN] Hi this is the first log message!
+2023-08-29 09:57:15.301 +03:00 [INF] Executed handler method OnGet, returned result .
+2023-08-29 09:57:15.305 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-29 09:57:15.307 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 09:57:15.424 +03:00 [INF] Executed page /Index in 126.1188ms
+2023-08-29 09:57:15.425 +03:00 [INF] Executed endpoint '/Index'
+2023-08-29 09:57:15.428 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/ - - - 200 - text/html;+charset=utf-8 321.8132ms
+2023-08-29 09:57:15.500 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/css/styles.css?v=BB7s2W-niPfpBXAN4M5-fmw8PATfII9I3lyl4scdWGQ - -
+2023-08-29 09:57:15.501 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 09:57:15.507 +03:00 [INF] The file /css/styles.css was not modified
+2023-08-29 09:57:15.508 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/css/styles.css?v=BB7s2W-niPfpBXAN4M5-fmw8PATfII9I3lyl4scdWGQ - - - 304 - text/css 8.1630ms
+2023-08-29 09:57:15.512 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 10.8386ms
+2023-08-29 09:57:31.226 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests/List - -
+2023-08-29 09:57:31.247 +03:00 [INF] Executing endpoint '/Requests/List'
+2023-08-29 09:57:31.262 +03:00 [INF] Route matched with {page = "/Requests/List", area = ""}. Executing page /Requests/List
+2023-08-29 09:57:31.263 +03:00 [INF] Executing handler method Presentation.Pages.Requests.ListModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 09:57:31.325 +03:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Requests] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-29 09:57:31.354 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId]
+FROM [Requests] AS [r]
+2023-08-29 09:57:31.420 +03:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 09:57:31.434 +03:00 [INF] Executed page /Requests/List in 171.4037ms
+2023-08-29 09:57:31.434 +03:00 [INF] Executed endpoint '/Requests/List'
+2023-08-29 09:57:31.435 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/Requests/List - - - 200 - text/html;+charset=utf-8 209.5322ms
+2023-08-29 09:57:31.533 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 09:57:31.535 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 2.5360ms
+2023-08-29 09:57:33.500 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests?id=1 - -
+2023-08-29 09:57:33.501 +03:00 [INF] Executing endpoint '/Requests/Index'
+2023-08-29 09:57:33.505 +03:00 [INF] Route matched with {page = "/Requests/Index", area = ""}. Executing page /Requests/Index
+2023-08-29 09:57:33.528 +03:00 [INF] Executing handler method Presentation.Pages.Requests.IndexModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 09:57:33.544 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId]
+FROM [Requests] AS [r]
+WHERE [r].[Id] = @__p_0
+2023-08-29 09:59:13.097 +03:00 [INF] User profile is available. Using '/Users/dummdevka/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-08-29 09:59:13.415 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 09:59:13.816 +03:00 [INF] Executed DbCommand (31ms) [Parameters=[@__normalizedName_0='ADMIN' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 09:59:13.848 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='WORKER' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 09:59:13.873 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='TRAKE1524@GMAIL.COM' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-29 09:59:14.139 +03:00 [INF] Now listening on: https://localhost:7042
+2023-08-29 09:59:14.139 +03:00 [INF] Now listening on: http://localhost:5193
+2023-08-29 09:59:14.218 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-29 09:59:14.219 +03:00 [INF] Hosting environment: Development
+2023-08-29 09:59:14.219 +03:00 [INF] Content root path: /Users/dummdevka/Projects/WorkCommunity/Presentation
+2023-08-29 09:59:15.434 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/ - -
+2023-08-29 09:59:15.462 +03:00 [INF] Executing endpoint '/Index'
+2023-08-29 09:59:15.471 +03:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2023-08-29 09:59:15.475 +03:00 [INF] Executing handler method Presentation.Pages.IndexModel.OnGet - ModelState is "Valid"
+2023-08-29 09:59:15.475 +03:00 [WRN] Hi this is the first log message!
+2023-08-29 09:59:15.475 +03:00 [INF] Executed handler method OnGet, returned result .
+2023-08-29 09:59:15.476 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-29 09:59:15.476 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 09:59:15.543 +03:00 [INF] Executed page /Index in 70.4086ms
+2023-08-29 09:59:15.544 +03:00 [INF] Executed endpoint '/Index'
+2023-08-29 09:59:15.546 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/ - - - 200 - text/html;+charset=utf-8 113.1791ms
+2023-08-29 09:59:15.634 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 09:59:15.637 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 3.3794ms
+2023-08-29 09:59:17.535 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Users/List - -
+2023-08-29 09:59:17.557 +03:00 [INF] Executing endpoint '/Users/List'
+2023-08-29 09:59:17.571 +03:00 [INF] Route matched with {page = "/Users/List", area = ""}. Executing page /Users/List
+2023-08-29 09:59:17.572 +03:00 [INF] Executing handler method Presentation.Pages.Users.ListModel.OnGet - ModelState is "Valid"
+2023-08-29 09:59:17.844 +03:00 [WRN] Added to cache with key: Users_20230829_09
+2023-08-29 09:59:17.953 +03:00 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-29 09:59:17.964 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2023-08-29 10:08:26.081 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 10:08:44.013 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 10:08:44.269 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-29 10:08:44.291 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-29 10:08:44.293 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-29 10:08:44.294 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-29 10:08:44.302 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-08-29 10:08:44.308 +03:00 [INF] Applying migration '20230829070826_SetUserRequestsRelations'.
+2023-08-29 10:08:44.348 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230829070826_SetUserRequestsRelations', N'7.0.10');
+2023-08-29 10:09:33.659 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 10:09:33.885 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-29 10:09:33.902 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-29 10:09:33.905 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-29 10:09:33.907 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-29 10:09:33.914 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-08-29 10:09:33.920 +03:00 [INF] No migrations were applied. The database is already up to date.
+2023-08-29 10:23:47.611 +03:00 [INF] User profile is available. Using '/Users/dummdevka/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-08-29 10:23:47.956 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 10:23:48.399 +03:00 [INF] Executed DbCommand (56ms) [Parameters=[@__normalizedName_0='ADMIN' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 10:23:48.433 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='WORKER' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 10:23:48.459 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='TRAKE1524@GMAIL.COM' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-29 10:23:48.737 +03:00 [INF] Now listening on: https://localhost:7042
+2023-08-29 10:23:48.738 +03:00 [INF] Now listening on: http://localhost:5193
+2023-08-29 10:23:48.740 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-29 10:23:48.740 +03:00 [INF] Hosting environment: Development
+2023-08-29 10:23:48.740 +03:00 [INF] Content root path: /Users/dummdevka/Projects/WorkCommunity/Presentation
+2023-08-29 10:23:50.115 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/ - -
+2023-08-29 10:23:50.140 +03:00 [INF] Executing endpoint '/Index'
+2023-08-29 10:23:50.151 +03:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2023-08-29 10:23:50.154 +03:00 [INF] Executing handler method Presentation.Pages.IndexModel.OnGet - ModelState is "Valid"
+2023-08-29 10:23:50.155 +03:00 [WRN] Hi this is the first log message!
+2023-08-29 10:23:50.155 +03:00 [INF] Executed handler method OnGet, returned result .
+2023-08-29 10:23:50.156 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-29 10:23:50.156 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:23:50.227 +03:00 [INF] Executed page /Index in 75.0637ms
+2023-08-29 10:23:50.228 +03:00 [INF] Executed endpoint '/Index'
+2023-08-29 10:23:50.230 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/ - - - 200 - text/html;+charset=utf-8 116.1320ms
+2023-08-29 10:23:50.304 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:23:50.310 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 5.3342ms
+2023-08-29 10:23:53.959 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests/List - -
+2023-08-29 10:23:53.988 +03:00 [INF] Executing endpoint '/Requests/List'
+2023-08-29 10:23:53.999 +03:00 [INF] Route matched with {page = "/Requests/List", area = ""}. Executing page /Requests/List
+2023-08-29 10:23:54.000 +03:00 [INF] Executing handler method Presentation.Pages.Requests.ListModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 10:23:54.050 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Requests] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-29 10:23:54.085 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId]
+FROM [Requests] AS [r]
+2023-08-29 10:23:54.093 +03:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:23:54.100 +03:00 [INF] Executed page /Requests/List in 100.5243ms
+2023-08-29 10:23:54.100 +03:00 [INF] Executed endpoint '/Requests/List'
+2023-08-29 10:23:54.102 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/Requests/List - - - 200 - text/html;+charset=utf-8 142.6804ms
+2023-08-29 10:23:54.150 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:23:54.150 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 0.7303ms
+2023-08-29 10:23:55.904 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests?id=1 - -
+2023-08-29 10:23:55.905 +03:00 [INF] Executing endpoint '/Requests/Index'
+2023-08-29 10:23:55.909 +03:00 [INF] Route matched with {page = "/Requests/Index", area = ""}. Executing page /Requests/Index
+2023-08-29 10:23:55.929 +03:00 [INF] Executing handler method Presentation.Pages.Requests.IndexModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 10:23:55.957 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId]
+FROM [Requests] AS [r]
+WHERE [r].[Id] = @__p_0
+2023-08-29 10:27:15.809 +03:00 [INF] User profile is available. Using '/Users/dummdevka/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-08-29 10:27:16.137 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 10:27:16.555 +03:00 [INF] Executed DbCommand (30ms) [Parameters=[@__normalizedName_0='ADMIN' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 10:27:16.588 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='WORKER' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 10:27:16.614 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='TRAKE1524@GMAIL.COM' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-29 10:27:16.852 +03:00 [INF] Now listening on: https://localhost:7042
+2023-08-29 10:27:16.852 +03:00 [INF] Now listening on: http://localhost:5193
+2023-08-29 10:27:16.853 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-29 10:27:16.853 +03:00 [INF] Hosting environment: Development
+2023-08-29 10:27:16.853 +03:00 [INF] Content root path: /Users/dummdevka/Projects/WorkCommunity/Presentation
+2023-08-29 10:27:18.292 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/ - -
+2023-08-29 10:27:18.344 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2023-08-29 10:27:18.367 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-08-29 10:27:18.426 +03:00 [INF] Executed DbCommand (48ms) [Parameters=[@__userId_0='5'], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-08-29 10:27:18.431 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='ADMIN' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 10:27:18.438 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__role_Id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2023-08-29 10:27:18.455 +03:00 [INF] Executing endpoint '/Index'
+2023-08-29 10:27:18.460 +03:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2023-08-29 10:27:18.464 +03:00 [INF] Executing handler method Presentation.Pages.IndexModel.OnGet - ModelState is "Valid"
+2023-08-29 10:27:18.464 +03:00 [WRN] Hi this is the first log message!
+2023-08-29 10:27:18.464 +03:00 [INF] Executed handler method OnGet, returned result .
+2023-08-29 10:27:18.465 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-29 10:27:18.465 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:27:18.536 +03:00 [INF] Executed page /Index in 74.4172ms
+2023-08-29 10:27:18.537 +03:00 [INF] Executed endpoint '/Index'
+2023-08-29 10:27:18.542 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/ - - - 200 - text/html;+charset=utf-8 251.2818ms
+2023-08-29 10:27:18.602 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:27:18.605 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 3.6005ms
+2023-08-29 10:27:22.755 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests/List - -
+2023-08-29 10:27:22.779 +03:00 [INF] Executing endpoint '/Requests/List'
+2023-08-29 10:27:22.789 +03:00 [INF] Route matched with {page = "/Requests/List", area = ""}. Executing page /Requests/List
+2023-08-29 10:27:22.790 +03:00 [INF] Executing handler method Presentation.Pages.Requests.ListModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 10:27:22.823 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Requests] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-29 10:27:22.853 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId]
+FROM [Requests] AS [r]
+2023-08-29 10:27:22.862 +03:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:27:22.872 +03:00 [INF] Executed page /Requests/List in 82.3467ms
+2023-08-29 10:27:22.872 +03:00 [INF] Executed endpoint '/Requests/List'
+2023-08-29 10:27:22.872 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/Requests/List - - - 200 - text/html;+charset=utf-8 117.7782ms
+2023-08-29 10:27:22.945 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:27:22.946 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 0.9535ms
+2023-08-29 10:27:24.567 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests?id=1 - -
+2023-08-29 10:27:24.568 +03:00 [INF] Executing endpoint '/Requests/Index'
+2023-08-29 10:27:24.571 +03:00 [INF] Route matched with {page = "/Requests/Index", area = ""}. Executing page /Requests/Index
+2023-08-29 10:27:24.589 +03:00 [INF] Executing handler method Presentation.Pages.Requests.IndexModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 10:27:24.667 +03:00 [INF] Executed DbCommand (51ms) [Parameters=[@__request_id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Requests] AS [r]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[UserId] = [a].[Id]
+WHERE [r].[Id] = @__request_id_0
+2023-08-29 10:33:04.908 +03:00 [INF] User profile is available. Using '/Users/dummdevka/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-08-29 10:33:05.217 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 10:33:05.697 +03:00 [INF] Executed DbCommand (31ms) [Parameters=[@__normalizedName_0='ADMIN' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 10:33:05.730 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='WORKER' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 10:33:05.758 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='TRAKE1524@GMAIL.COM' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-29 10:33:05.961 +03:00 [INF] Now listening on: https://localhost:7042
+2023-08-29 10:33:05.961 +03:00 [INF] Now listening on: http://localhost:5193
+2023-08-29 10:33:05.962 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-29 10:33:05.962 +03:00 [INF] Hosting environment: Development
+2023-08-29 10:33:05.962 +03:00 [INF] Content root path: /Users/dummdevka/Projects/WorkCommunity/Presentation
+2023-08-29 10:33:07.420 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/ - -
+2023-08-29 10:33:07.453 +03:00 [INF] Executing endpoint '/Index'
+2023-08-29 10:33:07.462 +03:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2023-08-29 10:33:07.468 +03:00 [INF] Executing handler method Presentation.Pages.IndexModel.OnGet - ModelState is "Valid"
+2023-08-29 10:33:07.468 +03:00 [WRN] Hi this is the first log message!
+2023-08-29 10:33:07.468 +03:00 [INF] Executed handler method OnGet, returned result .
+2023-08-29 10:33:07.470 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-29 10:33:07.470 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:33:07.550 +03:00 [INF] Executed page /Index in 85.7887ms
+2023-08-29 10:33:07.550 +03:00 [INF] Executed endpoint '/Index'
+2023-08-29 10:33:07.553 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/ - - - 200 - text/html;+charset=utf-8 133.9828ms
+2023-08-29 10:33:07.635 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:33:07.638 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 3.2742ms
+2023-08-29 10:33:10.747 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests/List - -
+2023-08-29 10:33:10.774 +03:00 [INF] Executing endpoint '/Requests/List'
+2023-08-29 10:33:10.784 +03:00 [INF] Route matched with {page = "/Requests/List", area = ""}. Executing page /Requests/List
+2023-08-29 10:33:10.785 +03:00 [INF] Executing handler method Presentation.Pages.Requests.ListModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 10:33:10.838 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Requests] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-29 10:33:10.849 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId]
+FROM [Requests] AS [r]
+2023-08-29 10:33:10.883 +03:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:33:10.892 +03:00 [INF] Executed page /Requests/List in 107.3603ms
+2023-08-29 10:33:10.892 +03:00 [INF] Executed endpoint '/Requests/List'
+2023-08-29 10:33:10.894 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/Requests/List - - - 200 - text/html;+charset=utf-8 146.7071ms
+2023-08-29 10:33:10.966 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:33:10.967 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 0.7969ms
+2023-08-29 10:33:13.244 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests?id=1 - -
+2023-08-29 10:33:13.245 +03:00 [INF] Executing endpoint '/Requests/Index'
+2023-08-29 10:33:13.250 +03:00 [INF] Route matched with {page = "/Requests/Index", area = ""}. Executing page /Requests/Index
+2023-08-29 10:33:13.272 +03:00 [INF] Executing handler method Presentation.Pages.Requests.IndexModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 10:33:13.330 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__request_id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Requests] AS [r]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[UserId] = [a].[Id]
+WHERE [r].[Id] = @__request_id_0
+2023-08-29 10:33:13.337 +03:00 [INF] Executed handler method OnGetAsync, returned result .
+2023-08-29 10:33:13.337 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-29 10:33:13.337 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:33:13.341 +03:00 [INF] Executed page /Requests/Index in 91.185ms
+2023-08-29 10:33:13.341 +03:00 [INF] Executed endpoint '/Requests/Index'
+2023-08-29 10:33:13.341 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/Requests?id=1 - - - 200 - text/html;+charset=utf-8 97.7307ms
+2023-08-29 10:33:13.411 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:33:13.412 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 0.7653ms
+2023-08-29 10:33:43.746 +03:00 [INF] User profile is available. Using '/Users/dummdevka/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-08-29 10:33:44.048 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 10:33:44.432 +03:00 [INF] Executed DbCommand (30ms) [Parameters=[@__normalizedName_0='ADMIN' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 10:33:44.464 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='WORKER' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-08-29 10:33:44.489 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='TRAKE1524@GMAIL.COM' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-29 10:33:44.698 +03:00 [INF] Now listening on: https://localhost:7042
+2023-08-29 10:33:44.749 +03:00 [INF] Now listening on: http://localhost:5193
+2023-08-29 10:33:44.778 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-29 10:33:44.779 +03:00 [INF] Hosting environment: Development
+2023-08-29 10:33:44.779 +03:00 [INF] Content root path: /Users/dummdevka/Projects/WorkCommunity/Presentation
+2023-08-29 10:33:46.063 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/ - -
+2023-08-29 10:33:46.095 +03:00 [INF] Executing endpoint '/Index'
+2023-08-29 10:33:46.108 +03:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2023-08-29 10:33:46.111 +03:00 [INF] Executing handler method Presentation.Pages.IndexModel.OnGet - ModelState is "Valid"
+2023-08-29 10:33:46.112 +03:00 [WRN] Hi this is the first log message!
+2023-08-29 10:33:46.112 +03:00 [INF] Executed handler method OnGet, returned result .
+2023-08-29 10:33:46.113 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-29 10:33:46.113 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:33:46.180 +03:00 [INF] Executed page /Index in 70.8577ms
+2023-08-29 10:33:46.181 +03:00 [INF] Executed endpoint '/Index'
+2023-08-29 10:33:46.183 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/ - - - 200 - text/html;+charset=utf-8 121.7069ms
+2023-08-29 10:33:46.268 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:33:46.271 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/css/styles.css?v=yBT8mttELyMaiy8-YpmG4Tm-DCOG8ktI8VZc7USlla8 - -
+2023-08-29 10:33:46.274 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 5.6987ms
+2023-08-29 10:33:46.339 +03:00 [INF] Sending file. Request path: '/css/styles.css'. Physical path: '/Users/dummdevka/Projects/WorkCommunity/Presentation/wwwroot/css/styles.css'
+2023-08-29 10:33:46.339 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/css/styles.css?v=yBT8mttELyMaiy8-YpmG4Tm-DCOG8ktI8VZc7USlla8 - - - 200 23591 text/css 67.9594ms
+2023-08-29 10:33:49.429 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests/List - -
+2023-08-29 10:33:49.438 +03:00 [INF] Executing endpoint '/Requests/List'
+2023-08-29 10:33:49.461 +03:00 [INF] Route matched with {page = "/Requests/List", area = ""}. Executing page /Requests/List
+2023-08-29 10:33:49.462 +03:00 [INF] Executing handler method Presentation.Pages.Requests.ListModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 10:33:49.519 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Requests] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-08-29 10:33:49.548 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId]
+FROM [Requests] AS [r]
+2023-08-29 10:33:49.643 +03:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:33:49.662 +03:00 [INF] Executed page /Requests/List in 200.3012ms
+2023-08-29 10:33:49.664 +03:00 [INF] Executed endpoint '/Requests/List'
+2023-08-29 10:33:49.669 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/Requests/List - - - 200 - text/html;+charset=utf-8 240.6372ms
+2023-08-29 10:33:49.737 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:33:49.737 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/css/styles.css?v=yBT8mttELyMaiy8-YpmG4Tm-DCOG8ktI8VZc7USlla8 - -
+2023-08-29 10:33:49.739 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 2.3791ms
+2023-08-29 10:33:49.744 +03:00 [INF] The file /css/styles.css was not modified
+2023-08-29 10:33:49.744 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/css/styles.css?v=yBT8mttELyMaiy8-YpmG4Tm-DCOG8ktI8VZc7USlla8 - - - 304 - text/css 7.4654ms
+2023-08-29 10:33:51.548 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests?id=1 - -
+2023-08-29 10:33:51.550 +03:00 [INF] Executing endpoint '/Requests/Index'
+2023-08-29 10:33:51.554 +03:00 [INF] Route matched with {page = "/Requests/Index", area = ""}. Executing page /Requests/Index
+2023-08-29 10:33:51.575 +03:00 [INF] Executing handler method Presentation.Pages.Requests.IndexModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 10:33:51.635 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__request_id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Requests] AS [r]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[UserId] = [a].[Id]
+WHERE [r].[Id] = @__request_id_0
+2023-08-29 10:33:51.643 +03:00 [INF] Executed handler method OnGetAsync, returned result .
+2023-08-29 10:33:51.643 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-29 10:33:51.643 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:33:51.647 +03:00 [INF] Executed page /Requests/Index in 92.8269ms
+2023-08-29 10:33:51.647 +03:00 [INF] Executed endpoint '/Requests/Index'
+2023-08-29 10:33:51.647 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/Requests?id=1 - - - 200 - text/html;+charset=utf-8 99.0558ms
+2023-08-29 10:33:51.725 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:33:51.725 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/css/styles.css?v=yBT8mttELyMaiy8-YpmG4Tm-DCOG8ktI8VZc7USlla8 - -
+2023-08-29 10:33:51.726 +03:00 [INF] The file /css/styles.css was not modified
+2023-08-29 10:33:51.726 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 0.9285ms
+2023-08-29 10:33:51.726 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/css/styles.css?v=yBT8mttELyMaiy8-YpmG4Tm-DCOG8ktI8VZc7USlla8 - - - 304 - text/css 1.0198ms
+2023-08-29 10:45:41.884 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/Requests?id=1 - -
+2023-08-29 10:45:41.892 +03:00 [INF] Executing endpoint '/Requests/Index'
+2023-08-29 10:45:41.893 +03:00 [INF] Route matched with {page = "/Requests/Index", area = ""}. Executing page /Requests/Index
+2023-08-29 10:45:41.898 +03:00 [INF] Executing handler method Presentation.Pages.Requests.IndexModel.OnGetAsync - ModelState is "Valid"
+2023-08-29 10:45:41.991 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__request_id_0='1'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[RequestType], [r].[Title], [r].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[Age], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Position], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Requests] AS [r]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[UserId] = [a].[Id]
+WHERE [r].[Id] = @__request_id_0
+2023-08-29 10:45:41.993 +03:00 [INF] Executed handler method OnGetAsync, returned result .
+2023-08-29 10:45:41.993 +03:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2023-08-29 10:45:41.993 +03:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2023-08-29 10:45:41.998 +03:00 [INF] Executed page /Requests/Index in 104.053ms
+2023-08-29 10:45:41.998 +03:00 [INF] Executed endpoint '/Requests/Index'
+2023-08-29 10:45:41.998 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/Requests?id=1 - - - 200 - text/html;+charset=utf-8 114.1710ms
+2023-08-29 10:45:42.097 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-08-29 10:45:42.098 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7042/css/styles.css?v=yBT8mttELyMaiy8-YpmG4Tm-DCOG8ktI8VZc7USlla8 - -
+2023-08-29 10:45:42.099 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 404 0 - 1.6908ms
+2023-08-29 10:45:42.099 +03:00 [INF] The file /css/styles.css was not modified
+2023-08-29 10:45:42.099 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7042/css/styles.css?v=yBT8mttELyMaiy8-YpmG4Tm-DCOG8ktI8VZc7USlla8 - - - 304 - text/css 1.8485ms
+2023-08-29 15:36:51.716 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 15:37:01.447 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-08-29 15:37:01.662 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-29 15:37:01.675 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-29 15:37:01.677 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-29 15:37:01.678 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-29 15:37:01.685 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-08-29 15:37:01.690 +03:00 [INF] Applying migration '20230829123651_AddCompletedToRequests'.
+2023-08-29 15:37:01.787 +03:00 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Requests] ADD [Completed] bit NOT NULL DEFAULT CAST(0 AS bit);
+2023-08-29 15:37:01.790 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230829123651_AddCompletedToRequests', N'7.0.10');

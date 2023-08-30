@@ -10,14 +10,9 @@ using Microsoft.EntityFrameworkCore;
 namespace Infrastructure.Persistance
 {
 	public class CommunityDbContext : IdentityDbContext<User, IdentityRole<int>, int>, IDbContext
-	{
-		//public CommunityDbContext() {
-
-		//}
-		//private UserManager<User> _userManager;
+	{	
 		public CommunityDbContext(DbContextOptions<CommunityDbContext> options) : base(options)
 		{
-			//_userManager = userManager;
 		}
 
 		public DbSet<User> Users {
@@ -54,6 +49,13 @@ namespace Infrastructure.Persistance
 				.WithOne(u => u.ParkingSlot)
 				.HasForeignKey<ParkingSlot>(s => s.UserId)
 				.HasPrincipalKey<User>(u => u.Id);
+
+			model.Entity<User>()
+				.HasMany(u => u.Requests)
+				.WithOne(r => r.CreatedBy)
+				.HasForeignKey(r => r.UserId)
+				.HasPrincipalKey(u => u.Id);
+
 
 			//User user = 
 			//var hasher = new PasswordHasher<IdentityUser>();

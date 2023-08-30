@@ -34,7 +34,9 @@
     <None Remove="Requests\Commands\" />
     <None Remove="Requests\Commands\CreateRequest\" />
     <None Remove="Requests\Queries\GetRequests\" />
-    <None Remove="Requests\Queries\GetRequestsByUser\" />
+    <None Remove="Requests\Queries\GetRequestById\" />
+    <None Remove="Requests\Commands\DeleteRequest\" />
+    <None Remove="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -56,6 +58,8 @@
     <Folder Include="Requests\Commands\" />
     <Folder Include="Requests\Commands\CreateRequest\" />
     <Folder Include="Requests\Queries\GetRequests\" />
-    <Folder Include="Requests\Queries\GetRequestsByUser\" />
+    <Folder Include="Requests\Queries\GetRequestById\" />
+    <Folder Include="Requests\Commands\DeleteRequest\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
 </Project>
