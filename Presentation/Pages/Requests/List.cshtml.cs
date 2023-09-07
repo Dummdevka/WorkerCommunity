@@ -46,9 +46,5 @@ namespace Presentation.Pages.Requests
             await _mediator.Send(new DeleteRequestCommand(id));
             return RedirectToAction(Request.Path);
 	    }
-
-		//public async Task<IActionResult> OnGetEditAsync(int id) {
-		//	return RedirectToAction(Request.Path);
-		//}
 	}
 }
