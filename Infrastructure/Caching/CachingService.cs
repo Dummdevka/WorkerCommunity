@@ -9,6 +9,7 @@ using StackExchange.Redis;
 namespace Infrastructure.Caching
 {
 	public class CachingService : ICachingService
+		//where T : class
 	{
 		private readonly IDistributedCache _cache;
 		ConnectionMultiplexer _mutex;
@@ -24,11 +25,11 @@ namespace Infrastructure.Caching
 		}
 
 		public async Task<T?> GetDataAsync<T>(string key, CancellationToken cancellationToken = default)
-		where T : class
-		{
+		where T : class {
 			var json = await _cache.GetStringAsync(key, cancellationToken);
 			if (json is null)
 				return null;
+
 			T? data = JsonSerializer.Deserialize<T>(json);
 			
 			return data;
@@ -39,14 +40,13 @@ namespace Infrastructure.Caching
 		T data,
 		TimeSpan? absoluteExpTime = null,
 		TimeSpan? unusedExpTime = null,
-		CancellationToken cancellationToken = default)
-			where T : class
+		CancellationToken cancellationToken = default) where T : class
 		{
 			var options = new DistributedCacheEntryOptions();
 			options.AbsoluteExpirationRelativeToNow = absoluteExpTime ?? TimeSpan.FromHours(1);
 			options.SlidingExpiration = unusedExpTime;
 
-			string json = JsonSerializer.Serialize<T>(data);
+			string json = JsonSerializer.Serialize(data);
 			await _cache.SetStringAsync(key, json, cancellationToken);
 
 		}

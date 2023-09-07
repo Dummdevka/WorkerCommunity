@@ -15,7 +15,7 @@ namespace Application.Users.Commands.CreateUser
 				.NotEmpty();
 
 			RuleFor(u => u.age)
-				.InclusiveBetween(14, 99)
+				.InclusiveBetween(14, 59)
 				.NotEmpty();
 
 			RuleFor(u => u.position)

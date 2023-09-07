@@ -3,13 +3,15 @@ using Application.Abstractions;
 using Application.Abstrations;
 using Application.Users.Queries.GetUsers;
 using Domain.Entities;
+using Domain.Errors;
 using Domain.Exceptions;
+using Domain.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
 namespace Application.Users.Commands.CreateUser
 {
-	public class CreateUserHandler : IRequestHandler<CreateUserCommand, int>
+	public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<int>>
 	{
 		private readonly UserManager<User> _userManager;
 		private readonly ICachingService _cache;
@@ -21,7 +23,7 @@ namespace Application.Users.Commands.CreateUser
 			_db = db;
 		}
 
-		public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+		public async Task<Result<int>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
 		{
 			User newUser = new User() {
 				FirstName = request.firstname,
@@ -33,9 +35,10 @@ namespace Application.Users.Commands.CreateUser
 				SecurityStamp = Guid.NewGuid().ToString("D")
 			};
 
-			var result = await _userManager.CreateAsync(newUser, request.password);
+			IdentityResult result = await _userManager.CreateAsync(newUser, request.password);
+			
 			if (!result.Succeeded)
-				throw new InvalidUserCredentialsException(result.Errors);
+				return new ValidationError(result.Errors.Select(e => e.Description).ToList());
 			await _userManager.AddToRoleAsync(newUser, "Worker");
 			_cache.RemoveRecordsByKeyPattern(User.cacheKey);
 

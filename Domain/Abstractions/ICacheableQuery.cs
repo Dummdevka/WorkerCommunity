@@ -11,6 +11,8 @@ namespace Domain.Abstractions
 			get;
 		}
 
+		//Type value
+
 		TimeSpan? absoluteExpiration {
 			get; 
 		}

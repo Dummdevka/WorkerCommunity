@@ -7,6 +7,7 @@ using Application.Abstrations;
 using Application.Users.Commands.CreateUser;
 using Domain.Entities;
 using Domain.Exceptions;
+using Domain.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -70,15 +71,14 @@ namespace Presentation.Pages.Users
 			if (!ModelState.IsValid)
 				return Page();
 
-			try {
-				await _mediator.Send(new CreateUserCommand(FirstName, LastName, Age, Email, Position, Password));
-				return Redirect("/Users/List");
-			} catch(InvalidUserCredentialsException e) {
-				foreach (var error in e.errors) {
-					ModelState.AddModelError("", error.Description);
-				}
+			//try {
+			Result<int> result = await _mediator.Send(new CreateUserCommand(FirstName, LastName, Age, Email, Position, Password));
+			if (result.IsError) {
+				result.Error.Errors.ForEach(e => ModelState.AddModelError("", e));	
 				return Page();
-			}	
+			}
+			return Redirect("/Users/List");
+				
 		}
     }
 }

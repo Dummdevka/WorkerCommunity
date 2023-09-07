@@ -1,6 +1,6 @@
 ﻿namespace Application.Abstrations
 {
-	public interface ICachingService
+	public interface ICachingService 
 	{
 		Task<T?> GetDataAsync<T>(string key, CancellationToken cancellationToken = default) where T : class;
 
