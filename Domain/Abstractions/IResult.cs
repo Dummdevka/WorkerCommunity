@@ -22,6 +22,7 @@ namespace Domain.Abstractions
 		}
 
 		public void SetError(IError error) {
+			IsError = true;
 			Error = error;
 		}
 	}

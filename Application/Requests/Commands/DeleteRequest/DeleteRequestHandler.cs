@@ -1,11 +1,13 @@
 ﻿using System;
 using Application.Abstractions;
 using Domain.Entities;
+using Domain.Errors;
+using Domain.Shared;
 using MediatR;
 
 namespace Application.Requests.Commands.DeleteRequest
 {
-	public class DeleteRequestHandler : IRequestHandler<DeleteRequestCommand>
+	public class DeleteRequestHandler : IRequestHandler<DeleteRequestCommand, EmptyResult>
 	{
 		private readonly IDbContext _db;
 
@@ -14,13 +16,14 @@ namespace Application.Requests.Commands.DeleteRequest
 			_db = db;
 		}
 
-		public async Task Handle(DeleteRequestCommand request, CancellationToken cancellationToken)
+		public async Task<EmptyResult> Handle(DeleteRequestCommand request, CancellationToken cancellationToken)
 		{
 			Request? result = await _db.Requests.FindAsync(request.id);
 			if (result is null)
-				throw new KeyNotFoundException("Request could not be found.");
+				return new NotFoundError("Request not found.");
 			_db.Requests.Remove(result);
 			await _db.SaveChangesAsync(cancellationToken);
+			return new();
 			 
 		}
 	}

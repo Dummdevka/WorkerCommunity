@@ -9,6 +9,7 @@ namespace Application.Requests.Commands.CreateRequest
 		{
 			RuleFor(r => r.title)
 				.NotEmpty()
+				.MinimumLength(1)
 				.MaximumLength(200);
 
 			RuleFor(r => r.description)

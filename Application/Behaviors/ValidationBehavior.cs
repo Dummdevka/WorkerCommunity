@@ -6,7 +6,7 @@ using MediatR;
 namespace Application.Behaviors
 {
 	public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-		where TRequest : IRequest<TResponse> 
+		where TRequest : IRequest<IResult>
 		where TResponse : IResult, new()
 	{
 		private readonly IEnumerable<IValidator<TRequest>> _validators;
@@ -27,6 +27,7 @@ namespace Application.Behaviors
 					TResponse response = new();
 					response.SetError(new ValidationError(failures.Select(f => f.ErrorMessage).ToList()));
 					return response;
+
 				}
 			}
 			return await next();

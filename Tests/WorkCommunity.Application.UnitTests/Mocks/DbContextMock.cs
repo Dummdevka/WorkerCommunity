@@ -1,18 +1,17 @@
-﻿using System;
-using System.Security;
-using Application.Abstractions;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Infrastructure.Persistance;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Moq;
-using Moq.EntityFrameworkCore;
+using Domain.Enums;
 
 namespace Tests.WorkCommunity.Application.UnitTests.Mocks
 {
 	public class DbContextMock
 	{
 		public List<User> users {
+			get; set;
+		}
+
+		public List<Request> requests {
 			get; set;
 		}
 
@@ -27,9 +26,7 @@ namespace Tests.WorkCommunity.Application.UnitTests.Mocks
 
 		public void seedUsers() {
 			using var context = new CommunityDbContext(contextOptions);
-			//var user = context.Users.ToList();
-			////if (context.Users.ToList().Count > 0)
-			////	return;
+	
 			users = new() {
 				new User() {
 					FirstName = "Hanna",
@@ -69,6 +66,40 @@ namespace Tests.WorkCommunity.Application.UnitTests.Mocks
 				}
 			};
 			context.AddRange(users);
+			context.SaveChanges();
+		}
+
+		public void seedRequests() {
+			using var context = new CommunityDbContext(contextOptions);
+			seedUsers();
+			requests = new() {
+				new Request() {
+					UserId = users.First().Id,
+					Title = "Need a day off",
+					Description = "Tommorrow pls",
+					RequestType = RequestType.DayOff
+				},
+				new Request() {
+					UserId = users.First().Id,
+					Title = "Need an iphone",
+					Description = "Tommorrow pls",
+					RequestType = RequestType.ItemNeeded
+				},
+				new Request() {
+					UserId = users.Last().Id,
+					Title = "Need a course on C#",
+					Description = "Tommorrow pls",
+					RequestType = RequestType.Learning
+				},
+				new Request() {
+					UserId = users.Last().Id,
+					Title = "Need a day off",
+					Description = "Tommorrow pls",
+					RequestType = RequestType.DayOff
+				}
+			};
+
+			context.AddRange(requests);
 			context.SaveChanges();
 		}
 	}

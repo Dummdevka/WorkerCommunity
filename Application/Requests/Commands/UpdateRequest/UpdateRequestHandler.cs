@@ -1,11 +1,13 @@
 ﻿using System;
 using Application.Abstractions;
 using Domain.Entities;
+using Domain.Errors;
+using Domain.Shared;
 using MediatR;
 
 namespace Application.Requests.Commands.UpdateRequest
 {
-	public class UpdateRequestHandler : IRequestHandler<UpdateRequestCommand>
+	public class UpdateRequestHandler : IRequestHandler<UpdateRequestCommand, Result<Request>>
 	{
 		private readonly IDbContext _db;
 
@@ -14,10 +16,12 @@ namespace Application.Requests.Commands.UpdateRequest
 			_db = db;
 		}
 
-		public async Task Handle(UpdateRequestCommand request, CancellationToken cancellationToken)
+		public async Task<Result<Request>> Handle(UpdateRequestCommand request, CancellationToken cancellationToken)
 		{
 			int requestId = request.Id ?? request.Request.Id;
-			Request target = _db.Requests.Find(requestId);
+			Request? target = _db.Requests.Find(requestId);
+			if (target is null)
+				return new NotFoundError("Request not found.");
 		
 			if (request.Data is not null) {
 				var properties = typeof(Request).GetProperties().ToList();
@@ -30,6 +34,7 @@ namespace Application.Requests.Commands.UpdateRequest
 				_db.Requests.Entry(target).CurrentValues.SetValues(request.Request);
 			}	
 			await _db.SaveChangesAsync(cancellationToken);
+			return target;
 		}
 	}
 }

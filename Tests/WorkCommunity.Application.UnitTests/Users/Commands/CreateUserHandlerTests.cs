@@ -53,7 +53,7 @@ namespace Tests.WorkCommunity.Application.UnitTests.Users.Commands
 			//Compare
 			Assert.True(result.IsError);
 			Assert.Equal(result.Error.Errors.First(), errorMessage);
-		}	
+		}
 	}
 }
 

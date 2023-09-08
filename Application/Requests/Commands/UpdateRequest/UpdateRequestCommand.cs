@@ -1,10 +1,11 @@
 ﻿using System;
 using Domain.Entities;
+using Domain.Shared;
 using MediatR;
 
 namespace Application.Requests.Commands.UpdateRequest
 {
-	public class UpdateRequestCommand : IRequest
+	public class UpdateRequestCommand : IRequest<Result<Request>>
 	{
 		public int? Id {
 			get; set;

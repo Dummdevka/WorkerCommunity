@@ -17,6 +17,10 @@ namespace Domain.Shared
 			Value = value;
 		}
 
+		public Result() {
+
+		}
+
 		public Result(IError error) : base(error) {}
 
 		public static implicit operator Result<T>(T value) => new Result<T>(value); 

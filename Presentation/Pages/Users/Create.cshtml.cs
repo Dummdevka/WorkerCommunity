@@ -23,7 +23,7 @@ namespace Presentation.Pages.Users
 		private readonly IMediator _mediator;
 
 		[Required]
-		[MaxLength(50)]
+		//[MaxLength(50)]
 		public string FirstName {
 			get; set;
 		}
