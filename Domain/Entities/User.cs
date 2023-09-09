@@ -41,6 +41,11 @@ namespace Domain.Entities
 
 		[NotMapped]
 		public static string cacheKey => "Users";
+
+		[NotMapped]
+		public string FullName {
+			get => $"{FirstName} {LastName}";
+		}
 	}
 }
 
