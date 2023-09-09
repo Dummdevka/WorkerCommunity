@@ -2,7 +2,8 @@
 @model Presentation.Pages.Requests.IndexModel
 @{
     <div class="flex w-full flex-col items-center">
-        <form method="post" asp-page-handler="edit" class="flex flex-col w-1/2 p-2 rounded-sm shadow-drop sm bg-gray-300 my-4">
+        <form method="post" asp-page-handler="update" class="flex flex-col w-1/2 p-2 rounded-sm shadow-drop sm bg-gray-300 my-4">
+            <input type="hidden" name="request.Id" value="@Model.Id">
             @if (User.IsInRole("Admin"))
             {
                 <div class="flex flex-col w-100 p-2">
@@ -19,27 +20,41 @@
             </div>
             <div class="flex flex-col w-100 p-2">
                 <label for="Title" class="text-sm">Type:</label>
-                <select class="border border-gray-400 rounded-sm mt-1 p-2" disabled="@Model.Disabled">
+                <select class="border border-gray-400 rounded-sm mt-1 p-2" disabled="@Model.Disabled" name="request.RequestType">
                     @foreach (var type in Model.RequestTypes)
                     {
-                        <option value="@type">@type</option>
+                        <option value="@type.type" selected="@type.selected">@type.type</option>
                     }
                 </select>
             </div>
-        </form>
-            @if(!Model.Disabled) { 
+            @if (User.IsInRole("Admin"))
+            {
+                @if (!Model.request.Completed)
+                {
+                    <input type="hidden" name="request.Completed" value="true" />
+                    <button class="rounded-sm bg-green-400 hover:bg-green-900 text-green-900 hover:text-white drop-shadow-sm h-10 transition">Mark completed</button>
+                }
+                else
+                {
+                    <input type="hidden" name="request.Completed" value="false" />
+                    <button class="rounded-sm bg-red-400 hover:bg-red-900 text-green-900 hover:text-white drop-shadow-sm h-10 transition">Mark uncompleted</button>
+                }
+            }
+
+
+            @if (User.IsInRole("Worker") && !Model.request.Completed)
+            {
                 <button class="rounded-sm bg-green-400 hover:bg-green-900 text-green-900 hover:text-white drop-shadow-sm h-10 transition">Save</button>
-		     }
-	        @if(User.IsInRole("Admin")) { 
-                    <form method="post" asp-page-handler="complete" asp-route-id="@Model.request.Id" asp-route-completed="@Model.request.Completed">
-                        @if(!Model.request.Completed) { 
-                            <button class="rounded-sm bg-green-400 hover:bg-green-900 text-green-900 hover:text-white drop-shadow-sm h-10 transition">Mark completed</button>
-			            } else { 
-                            <button class="rounded-sm bg-red-400 hover:bg-red-900 text-green-900 hover:text-white drop-shadow-sm h-10 transition">Mark uncompleted</button>
-			            }
-		            </form>
-		     }
-        
+
+            }
+        </form>
+        <form method="post" asp-page-handler="delete" asp-route-id="@Model.Id">
+            @if (!Model.request.Completed && Model.Disabled)
+            {
+                <button class="rounded-sm bg-red-400 hover:bg-red-900 text-white-900 hover:text-white drop-shadow-sm h-10 transition">Delete</button>
+            }
+        </form>
+
     </div>
 }
 

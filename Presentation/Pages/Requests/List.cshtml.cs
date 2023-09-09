@@ -2,6 +2,7 @@
 using Application.Requests.Commands.DeleteRequest;
 using Application.Requests.Queries;
 using Domain.Entities;
+using Domain.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -26,7 +27,13 @@ namespace Presentation.Pages.Requests
             get; set;
         }
 
-        public ListModel(IMediator mediator, UserManager<User> userManager) {
+		//[BindProperty(SupportsGet = true)]
+		//[DefaultValue(false)]
+		//public bool Finished {
+		//	get; set;
+		//}
+
+		public ListModel(IMediator mediator, UserManager<User> userManager) {
 			_mediator = mediator;
 			_userManager = userManager;
 		}
@@ -34,10 +41,12 @@ namespace Presentation.Pages.Requests
         public async Task<IActionResult> OnGetAsync()
         {
             if (User.IsInRole("Admin")) {
-                Requests = await _mediator.Send(new GetRequestsQuery(Completed: Finished));
+                Result<List<Request>> result = await _mediator.Send(new GetRequestsQuery(Completed: Finished));
+                Requests = result.Value;
             } else {
                 int userId = (await _userManager.GetUserAsync(User)).Id;
-                Requests = await _mediator.Send(new GetRequestsQuery(UserId: userId));
+		        Result<List<Request>> result = await _mediator.Send(new GetRequestsQuery(UserId: userId));
+                Requests = result.Value;
 	        }
             return Page();
         }
