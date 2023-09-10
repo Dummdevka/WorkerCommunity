@@ -34,6 +34,9 @@
     <None Remove="WorkCommunity.Application.UnitTests\Users\Queries\" />
     <None Remove="WorkCommunity.Application.UnitTests\Requests\Commands\" />
     <None Remove="WorkCommunity.Application.UnitTests\Requests\Queries\" />
+    <None Remove="WorkCommunity.Application.UnitTests\ParkingSlots\" />
+    <None Remove="WorkCommunity.Application.UnitTests\ParkingSlots\Commands\" />
+    <None Remove="WorkCommunity.Application.UnitTests\ParkingSlots\Queries\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="WorkCommunity.Application.UnitTests\" />
@@ -44,6 +47,9 @@
     <Folder Include="WorkCommunity.Application.UnitTests\Users\Queries\" />
     <Folder Include="WorkCommunity.Application.UnitTests\Requests\Commands\" />
     <Folder Include="WorkCommunity.Application.UnitTests\Requests\Queries\" />
+    <Folder Include="WorkCommunity.Application.UnitTests\ParkingSlots\" />
+    <Folder Include="WorkCommunity.Application.UnitTests\ParkingSlots\Commands\" />
+    <Folder Include="WorkCommunity.Application.UnitTests\ParkingSlots\Queries\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />

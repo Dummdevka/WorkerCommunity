@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.addApplication();
 builder.Services.addInfrastructure(builder.Configuration, builder.Host);
+
 //Caching
 builder.Services.AddStackExchangeRedisCache(options =>
 {

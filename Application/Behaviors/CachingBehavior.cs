@@ -10,8 +10,8 @@ using Microsoft.Extensions.Logging;
 namespace Application.Behaviors
 {
 	public class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> 
-		where TRequest : ICacheableQuery
-		where TResponse : IResult
+		where TRequest : ICacheableQuery, IRequest<IResult>
+		where TResponse : IResult, new()
     {
 		protected readonly ICachingService _cache;
 		protected readonly ILogger _logger;

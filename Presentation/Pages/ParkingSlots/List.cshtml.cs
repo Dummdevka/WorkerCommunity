@@ -1,5 +1,6 @@
 ﻿using Application.ParkingSlots.Commands.DeleteParkingSlot;
 using Application.ParkingSlots.Commands.OccupyParkingSlot;
+using Application.ParkingSlots.Queries.GetFilteredParkingSlots;
 using Application.ParkingSlots.Queries.GetParkingSlots;
 using Domain.Entities;
 using Domain.Shared;
@@ -43,14 +44,14 @@ namespace Presentation.Pages.ParkingSlots
 
 		public async Task<IActionResult> OnGetMyslotAsync() {
 			int userId = (await _userManager.GetUserAsync(User)).Id;
-			Result<List<ParkingSlot>> result = await _mediator.Send(new GetParkingSlotsQuery() { userId = userId });
+			Result<List<ParkingSlot>> result = await _mediator.Send(new GetFilteredParkingSlotsQuery() { userId = userId });
 			ParkingSlots = result.Value;
 			return Page();
 		}
 
 		public async Task<IActionResult> OnGetFreeslotsAsync() {
 			int userId = (await _userManager.GetUserAsync(User)).Id;
-			Result<List<ParkingSlot>> result = await _mediator.Send(new GetParkingSlotsQuery() { Occupied = false });
+			Result<List<ParkingSlot>> result = await _mediator.Send(new GetFilteredParkingSlotsQuery() { Occupied = false });
 			ParkingSlots = result.Value;
 			return Page();
 		}

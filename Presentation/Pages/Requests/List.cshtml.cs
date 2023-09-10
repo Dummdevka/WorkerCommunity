@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using Application.Requests.Commands.DeleteRequest;
 using Application.Requests.Queries;
+using Application.Requests.Queries.GetFilteredRequests;
 using Domain.Entities;
 using Domain.Shared;
 using MediatR;
@@ -27,12 +28,6 @@ namespace Presentation.Pages.Requests
             get; set;
         }
 
-		//[BindProperty(SupportsGet = true)]
-		//[DefaultValue(false)]
-		//public bool Finished {
-		//	get; set;
-		//}
-
 		public ListModel(IMediator mediator, UserManager<User> userManager) {
 			_mediator = mediator;
 			_userManager = userManager;
@@ -41,11 +36,11 @@ namespace Presentation.Pages.Requests
         public async Task<IActionResult> OnGetAsync()
         {
             if (User.IsInRole("Admin")) {
-                Result<List<Request>> result = await _mediator.Send(new GetRequestsQuery(Completed: Finished));
+                Result<List<Request>> result = await _mediator.Send(new GetFilteredRequestsQuery() { Completed = Finished});
                 Requests = result.Value;
             } else {
                 int userId = (await _userManager.GetUserAsync(User)).Id;
-		        Result<List<Request>> result = await _mediator.Send(new GetRequestsQuery(UserId: userId));
+		        Result<List<Request>> result = await _mediator.Send(new GetFilteredRequestsQuery() { UserId = userId});
                 Requests = result.Value;
 	        }
             return Page();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Application.Abstrations;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
@@ -46,7 +47,11 @@ namespace Infrastructure.Caching
 			options.AbsoluteExpirationRelativeToNow = absoluteExpTime ?? TimeSpan.FromHours(1);
 			options.SlidingExpiration = unusedExpTime;
 
-			string json = JsonSerializer.Serialize(data);
+			JsonSerializerOptions jsonOptions = new() {
+				ReferenceHandler = ReferenceHandler.IgnoreCycles,
+				WriteIndented = true
+			};
+			string json = JsonSerializer.Serialize(data, jsonOptions);
 			await _cache.SetStringAsync(key, json, cancellationToken);
 
 		}
