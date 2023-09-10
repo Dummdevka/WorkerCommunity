@@ -15,6 +15,10 @@ namespace Tests.WorkCommunity.Application.UnitTests.Mocks
 			get; set;
 		}
 
+		public List<ParkingSlot> slots {
+			get; set;
+		}
+
 		public DbContextOptions<CommunityDbContext> contextOptions;
 			
 
@@ -100,6 +104,33 @@ namespace Tests.WorkCommunity.Application.UnitTests.Mocks
 			};
 
 			context.AddRange(requests);
+			context.SaveChanges();
+		}
+
+		public void seedParkingSlots() {
+			seedUsers();
+			using var context = new CommunityDbContext(contextOptions);
+
+			slots = new() {
+				new ParkingSlot() {
+					Name = "A-1",
+					UserId = 1
+				},
+
+				new ParkingSlot() {
+					Name = "A-2",
+					UserId = 2
+				},
+				new ParkingSlot() {
+					Name = "A-3",
+					UserId = 3
+				},
+				new ParkingSlot() {
+					Name = "A-4",
+					//UserId = 4
+				}
+			};
+			context.AddRange(slots);
 			context.SaveChanges();
 		}
 	}

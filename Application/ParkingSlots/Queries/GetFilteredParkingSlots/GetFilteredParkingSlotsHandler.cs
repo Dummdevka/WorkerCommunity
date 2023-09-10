@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using Application.Abstractions;
 using Domain.Entities;
+using Domain.Errors;
 using Domain.Extensions;
 using Domain.Shared;
 using MediatR;
@@ -32,6 +33,9 @@ namespace Application.ParkingSlots.Queries.GetFilteredParkingSlots
 					occupiedFilter = s => s.UserId != null;
 
 				filter = filter is null ? occupiedFilter : filter.ConcatAdd(occupiedFilter);
+			}
+			if (filter is null) {
+				return new InternalError("No filters passed.");
 			}
 			slots = await _db.ParkingSlots.Where(filter).AsQueryable().Include("OccupiedBy").ToListAsync();
 			return slots;

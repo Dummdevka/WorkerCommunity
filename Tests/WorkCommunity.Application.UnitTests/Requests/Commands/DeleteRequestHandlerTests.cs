@@ -1,8 +1,10 @@
 ﻿using System;
+using Application.Abstrations;
 using Application.Requests.Commands.DeleteRequest;
 using Domain.Errors;
 using Domain.Shared;
 using Infrastructure.Persistance;
+using Moq;
 using Tests.WorkCommunity.Application.UnitTests.Mocks;
 
 namespace Tests.WorkCommunity.Application.UnitTests.Requests.Commands
@@ -13,10 +15,13 @@ namespace Tests.WorkCommunity.Application.UnitTests.Requests.Commands
 			get; set;
 		}
 
+		public Mock<ICachingService> _cache;
+
 		public DeleteRequestHandlerTests()
 		{
 			_mock = new("DeleteRequest");
 			_mock.seedRequests();
+			_cache = new();
 		}
 
 		[Fact]
@@ -24,7 +29,7 @@ namespace Tests.WorkCommunity.Application.UnitTests.Requests.Commands
 			//Setup
 			using var context = new CommunityDbContext(_mock.contextOptions);
 			var command = new DeleteRequestCommand(_mock.requests.First().Id);
-			var handler = new DeleteRequestHandler(context);
+			var handler = new DeleteRequestHandler(context, _cache.Object);
 
 			//Execution
 			EmptyResult result = await handler.Handle(command, default);
@@ -39,7 +44,7 @@ namespace Tests.WorkCommunity.Application.UnitTests.Requests.Commands
 			//Setup
 			using var context = new CommunityDbContext(_mock.contextOptions);
 			var command = new DeleteRequestCommand(_mock.requests.Last().Id+1);
-			var handler = new DeleteRequestHandler(context);
+			var handler = new DeleteRequestHandler(context, _cache.Object);
 
 			//Execution
 			EmptyResult result = await handler.Handle(command, default);

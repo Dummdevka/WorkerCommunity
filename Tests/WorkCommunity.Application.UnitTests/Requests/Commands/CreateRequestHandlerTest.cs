@@ -1,9 +1,11 @@
 ﻿using System;
+using Application.Abstrations;
 using Application.Requests.Commands.CreateRequest;
 using Domain.Enums;
 using Domain.Errors;
 using Domain.Shared;
 using Infrastructure.Persistance;
+using Moq;
 using Tests.WorkCommunity.Application.UnitTests.Mocks;
 
 namespace Tests.WorkCommunity.Application.UnitTests.Requests.Commands
@@ -14,10 +16,13 @@ namespace Tests.WorkCommunity.Application.UnitTests.Requests.Commands
 			get; set;
 		}
 
+		public Mock<ICachingService> _cache;
+
 		public CreateRequestHandlerTest()
 		{
 			_mock = new DbContextMock("CreateRequest");
 			_mock.seedRequests();
+			_cache = new();
 			//_mock.seedUsers();
 		}
 
@@ -26,7 +31,7 @@ namespace Tests.WorkCommunity.Application.UnitTests.Requests.Commands
 			//Setup
 			using var context = new CommunityDbContext(_mock.contextOptions);
 			var command = new CreateRequestCommand(RequestType.ItemNeeded,  "A request", "Dummy description", _mock.users.First().Id);
-			var handler = new CreateRequestHandler(context);
+			var handler = new CreateRequestHandler(context, _cache.Object);
 
 			//Execute
 			Result<int> result = await handler.Handle(command, default);
@@ -41,7 +46,7 @@ namespace Tests.WorkCommunity.Application.UnitTests.Requests.Commands
 			//Setup
 			using var context = new CommunityDbContext(_mock.contextOptions);
 			var command = new CreateRequestCommand(RequestType.ItemNeeded, "A request", "Dummy description", _mock.users.Last().Id + 1);
-			var handler = new CreateRequestHandler(context);
+			var handler = new CreateRequestHandler(context, _cache.Object);
 
 			//Execute
 			Result<int> result = await handler.Handle(command, default);
