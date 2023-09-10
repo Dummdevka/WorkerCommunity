@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
@@ -16,13 +17,17 @@ namespace Domain.Entities
 			get; set;
 		}
 
-		public int UserId {
+		[ForeignKey("OccupiedBy")]
+		public int? UserId {
 			get; set;
 		}
 
-		public User OccupiedBy {
+		public virtual User OccupiedBy {
 			get; set;
 		}
+
+		[NotMapped]
+		public static string cacheKey => "ParkingSlots";
 	}
 }
 

@@ -47,8 +47,9 @@ namespace Infrastructure.Persistance
 			model.Entity<ParkingSlot>()
 				.HasOne(s => s.OccupiedBy)
 				.WithOne(u => u.ParkingSlot)
-				.HasForeignKey<ParkingSlot>(s => s.UserId)
-				.HasPrincipalKey<User>(u => u.Id);
+				//.HasForeignKey<ParkingSlot>(s => s.UserId)
+				//.HasPrincipalKey<User>(u => u.Id)
+				.IsRequired(false);
 
 			model.Entity<User>()
 				.HasMany(u => u.Requests)
@@ -56,23 +57,6 @@ namespace Infrastructure.Persistance
 				.HasForeignKey(r => r.UserId)
 				.HasPrincipalKey(u => u.Id);
 
-
-			//User user = 
-			//var hasher = new PasswordHasher<IdentityUser>();
-			//model.Entity<User>()
-			//	.HasData(new User() {
-			//		Id = 1,
-			//		FirstName = "Test",
-			//		LastName = "Test",
-			//		Email = "test@test.com",
-			//		Position = "Tester",
-			//		Age = 23,
-			//		PasswordHash = hasher.HashPassword(null, "secret"),
-			//		UserName = "admin",
-			//		NormalizedUserName = "admin",
-			//		NormalizedEmail = "test@test.com",
-			//		SecurityStamp = Guid.NewGuid().ToString("D")
-			//	});
 		}
 
 	}

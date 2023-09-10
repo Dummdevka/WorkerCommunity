@@ -38,6 +38,12 @@
     <None Remove="Requests\Commands\DeleteRequest\" />
     <None Remove="Filters\" />
     <None Remove="Requests\Commands\UpdateRequest\" />
+    <None Remove="ParkingSlots\Commands\" />
+    <None Remove="ParkingSlots\Queries\" />
+    <None Remove="ParkingSlots\Commands\DeleteParkingSlot\" />
+    <None Remove="ParkingSlots\Commands\CreateParkingSlot\" />
+    <None Remove="ParkingSlots\Queries\GetParkingSlots\" />
+    <None Remove="ParkingSlots\Commands\OccupyParkingSlot\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -63,5 +69,11 @@
     <Folder Include="Requests\Commands\DeleteRequest\" />
     <Folder Include="Filters\" />
     <Folder Include="Requests\Commands\UpdateRequest\" />
+    <Folder Include="ParkingSlots\Commands\" />
+    <Folder Include="ParkingSlots\Queries\" />
+    <Folder Include="ParkingSlots\Commands\DeleteParkingSlot\" />
+    <Folder Include="ParkingSlots\Commands\CreateParkingSlot\" />
+    <Folder Include="ParkingSlots\Queries\GetParkingSlots\" />
+    <Folder Include="ParkingSlots\Commands\OccupyParkingSlot\" />
   </ItemGroup>
 </Project>

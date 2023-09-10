@@ -10,11 +10,20 @@
                 </a>
 
             }
-            
-            <button class="p-4 m-4 bg-green-300 hover:bg-green-500 transition text-white rounded-sm shadow-drop-sm">Show my slot</button>
-            <button class="p-4 m-4 bg-green-300 hover:bg-green-500 transition text-white rounded-sm shadow-drop-sm">Show free slot</button>
+            <form method="get">
+                @*<input type="hidden" name="handler" value="myslot" />*@
+                <button type="submit" class="p-4 m-4 bg-green-300 hover:bg-green-500 transition text-white rounded-sm shadow-drop-sm">Show all slots</button>
+            </form>
+            <form method="get">
+                <input type="hidden" name="handler" value="myslot" />
+                <button type="submit" class="p-4 m-4 bg-green-300 hover:bg-green-500 transition text-white rounded-sm shadow-drop-sm">Show my slot</button>
+            </form>
+            <form method="get">
+                <input type="hidden" name="handler" value="freeslots" />
+                <button type="submit" class="p-4 m-4 bg-green-300 hover:bg-green-500 transition text-white rounded-sm shadow-drop-sm">Show free slots</button>
+            </form>
 
-        )</div>
+        </div>
         <table class="text-left rounded-lg w-full shadow-drop-sm text-white p-2">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -26,30 +35,36 @@
             </thead>
             <tbody>
                 @foreach (var slot in @Model.ParkingSlots)
-                {
+                    {
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-6 py-4">@slot.Id</td>
-                        <td class="px-6 py-4" ">@slot.Name</td>
-                        <td class="px-6 py-4" ">@slot.OccupiedBy.FullName</td>
+                        <td class="px-6 py-4">@slot.Name</td>
+                        @if(slot.OccupiedBy is not null) { 
+                            <td class="px-6 py-4">@slot.OccupiedBy.FullName</td>
+			            } else { 
+                            <td class="px-6 py-4">This slot is free!</td>
+			            }
+                        
+                    <td class="px-6 py-4">
                         @if (slot.OccupiedBy is null)
                         {
-                            <td class="px-6 py-4">
-                                <form method="post" asp-page-handler="occupy" asp-route-id="@slot.Id">
-                                    <button type="submit" class="rounded-sm shadow-drop-sm bg-green-500 text-white p-1 mb-2">Occupy</button>
-                                </form>
-                            </td>
+                            <form method="post" asp-page-handler="occupy" asp-route-id="@slot.Id">
+                                <button type="submit" class="rounded-sm shadow-drop-sm bg-green-500 text-white p-1 mb-2">Occupy</button>
+                            </form>
                         }
                         @if (User.IsInRole("Admin"))
                         {
-                            <td class="px-6 py-4">
-                                <form method="post" asp-page-handler="delete" asp-route-id="@slot.Id">
-                                    <button type="submit" class="rounded-sm shadow-drop-sm bg-red-500 text-white p-1 mb-2">Delete</button>
-                                </form>
-                            </td>
+                            <form method="post" asp-page-handler="delete" asp-route-id="@slot.Id">
+                                <button type="submit" class="rounded-sm shadow-drop-sm bg-red-500 text-white p-1 mb-2">Delete</button>
+                            </form>
                         }
+                        </td>
+                        
+
 
                     </tr>
-                }
+                    }
             </tbody>
         </table>
     </div>
+    }
